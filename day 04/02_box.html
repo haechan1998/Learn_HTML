@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        width : 컨텐츠의 가로 길이
+        box-sizing : box의 크기를 지정하는 속성
+        box-sizing 에 따라 width의 크기가 컨텐츠의 가로길이가 될 수도 있고,
+        박스 전체의 가로 길이가 될 수도 있음.
+
+        - border-box : width = 컨텐츠가로 + 패딩 + 테두리
+        - content-box : width = 컨텐츠가로
+        width = 100px / padding = 5px / border = 1px
+        - border-box : 5px*2 + 1px*2 + content(88px) = 100px
+        - content-box : 100px + 5px*2 + 1px*2 = 112px
+    -->
+        <style>
+            .box1{
+                /* 양쪽 패딩 20px, 선 1px = 100px */
+                width: 100px;
+                height: 100px;
+                padding : 0 20px;
+                border: 1px solid black;
+                background-color: aqua;
+                box-sizing: border-box;
+            }
+            .box2{
+                /* 양쪽 패딩 20px, 선 1px = 100px */
+                width: 100px;
+                height: 100px;
+                padding : 0 20px;
+                border: 1px solid black;
+                background-color: aqua;
+                box-sizing: content-box;
+            }
+            .box{
+                width: 100px;
+                height: 40px;
+                padding: 0 10px;
+                background-color: rgba(137, 229, 0, 0.945);
+                font-size: 24px;
+                font-weight: 900;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                border-radius: 10px;
+                line-height: 35px;
+                color: whitesmoke;
+                box-sizing: content-box;
+            }
+            .box:hover{
+                background-color: rgb(176, 255, 17);
+            }
+            .naver{
+                text-decoration-line: none;
+                text-align: center;
+            }
+            .c{
+                width: 100px;
+            }
+
+        </style>
+</head>
+<body>
+    <!-- content-box -->
+    <div class="box1"></div>
+    <!-- border-box -->
+    <div class="box2"></div>
+    <!-- naver로 이동하는 버튼 생성 새창 열어서 이동 / 마우스 올리면 변경 -->
+    <!-- atag는 inline 형태이기 때문에 크기를 지정 할 수 없음 -->
+     <div class="c">
+    <a href="http://naver.com" target="_blank" class="naver">
+        <div class="box">naver</div>
+    </a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        display 속성
+        - block
+            - 새 라인에서 시작 (한 컨텐츠가 한 라인을 차지하는 태그)
+            - width, heigth 크기 조절이 가능
+            - 여백 조절이 가능 (margin, padding)
+
+        - inline
+            - 현재 라인에서 이어서 시작 (한 컨텐츠가 자신의 컨텐츠 만큼만 차지하는 태그)
+            - 크기 조절이 불가능. (자신의 컨텐츠 만으로 크기가 결정)
+            - margin 불가능, padding 가능
+
+        - inlineblock
+            - 현재 라인에서 시작
+            - 크기조절 가능
+            - 여백조절 가능 (margin, padding)
+        
+        display 속성 : 태그가 가지고 있는 기본 속성을 변경 가능
+
+
+
+        - flex (추가) : 자신의 명령어를 사용하기 위해 추가된 형태
+        - grid (추가) : 자신의 명령어를 사용하기 위해 추가된 형태
+    -->
+        <style>
+            div{
+                width: 200px;
+                height: 50px;
+                background-color: aqua;
+                margin: 10px;
+                padding: 0 10px;
+                box-sizing: border-box;
+            }
+            span{
+                width: 200px;
+                height: 50px;
+                background-color: blue;
+                margin: 10px;
+                padding: 0 10px;
+                display: block;
+                box-sizing: border-box;
+            }
+            button{
+                width: 200px;
+                height: 50px;
+                background-color: blueviolet;
+                margin: 10px;
+                padding: 0 10px;
+                box-sizing: border-box;
+            }
+            a{
+                width: 200px;
+                height: 50px;
+                background-color: yellow;
+                margin: 10px;
+                padding: 0 10px;
+                display: block;
+                box-sizing: border-box;
+            }
+        </style>
+</head>
+<body>
+    <div>block 속성</div><br>
+    <span>inline 속성</span><br>
+    <button>inlineblock 속성</button><br>
+    <a href="http://naver.com">naver</a>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: rgb(251, 251, 231);
+        }
+        .header>h2{
+            margin: 0;
+            padding: 20px 30px;
+        }
+        div{
+            width: 100%;
+        }
+        .header{
+            height: 80px;
+            background-color: rgba(222, 184, 135, 0.692);
+        }
+        .main-img{
+            background-image: url(../image/강아지3.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 60%;
+            height: 600px;
+            background-color: rgba(253, 253, 179, 0.475);
+        }
+        .content{
+            height: 300px;
+            padding: 0 30px;
+            box-sizing: border-box;
+        }
+        .sub{
+            background-image: url(../image/용품1.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 40%;
+            background-color: antiquewhite;
+            height: 300px;
+            position: relative;
+        }
+        .sub>a{
+            position: absolute;
+            border: 4px solid rgb(215, 215, 191);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 5px 40px;
+            box-sizing: border-box;
+            color: grey;
+            text-decoration: none;
+            font-size: 20px;
+            text-align: center;
+            line-height: 40px;
+        }
+        .sub>a:hover{
+            border: 4px solid rgb(168, 168, 148);
+            color: black;
+        }
+        .sub2{
+            background-image: url(../image/1용품2.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 40%;
+            height: 300px;
+            background-color: rgb(242, 226, 206);
+        }
+        .sub3{
+            background-image: url(../image/용품3.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 40%;
+            height: 300px;
+            background-color: rgb(233, 217, 199);
+        }
+
+        @media screen and (min-width : 800px) {
+            .header{
+                height: 80px;
+            }
+            .main-img{
+                height: 600px;
+            }
+            .content{
+                height: 200px;
+            }
+            .sub{
+                width: 50%;
+                height: 300px;
+                float: left;
+            }
+            .sub2{
+                width: 50%;
+                height: 150px;
+                float: right;
+            }
+            .sub3{
+                width: 50%;
+                height: 150px;
+                float: right;
+            }
+
+        }
+        @media screen and (min-width : 1280px) {
+            .header{
+                height: 80px;
+            }
+            .main-img{
+                width: 50%;
+                height: 600px;
+                float: left;
+            }
+            .content{
+                width: 50%;
+                height: 300px;
+                float: right;
+            }
+            .sub{
+                width: 25%;
+                height: 300px;
+                float: left;
+            }
+            .sub2{
+                width: 25%;
+                height: 150px;
+                float: right;
+            }
+            .sub3{
+                width: 25%;
+                height: 150px;
+                float: right;
+            }
+        }
+        .content>p:nth-child(1){
+            font-size: 20px;
+            color: grey;
+        }
+        .content>p:nth-child(2){
+            font-size: 30px;
+            font-weight: 700;
+        }
+        .content>p:nth-child(3){
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>Tory.OmO</h2>
+    </div>
+    <div class="main-img"></div>
+    <div class="content">
+        <p>Portfolio</p>
+
+        <p>Make Hardware Soft</p>
+
+        <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
+        Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also</p>
+    </div>
+    <div class="sub">
+        <a href="../day 05/07_animation3.html" target="_blank">MORE ITEM</a>
+    </div>
+    <div class="sub2"></div>
+    <div class="sub3"></div>
+
+</body>
+</html>

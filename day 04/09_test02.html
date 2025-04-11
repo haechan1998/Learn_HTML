@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .menu{
+            width: 200px;
+            float: left;
+        }
+        .menu>a{
+            border-radius: 10px;
+            border: 1px solid black;
+            border-bottom: none;
+            height: 30px;
+            display: block;
+            text-decoration: none;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 20px;
+            color: black;
+            font-size: 18x;
+            font-weight: 600;
+        }
+        .menu>a:last-child{
+            border: 1px solid black;
+        }
+        .menu>a:hover{
+            background-color: yellow;
+        }
+        .image-menu{
+            width: calc(100% - 200px);
+            height: 500px;
+            background-image: url(../image/고양이3.jpg);
+            box-sizing: border-box;
+            float: left;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="menu">
+            <a href="">메뉴1</a>
+            <a href="">메뉴2</a>
+            <a href="">메뉴3</a>
+            <a href="">메뉴4</a>
+        </div>
+        <div class="image-menu"></div>
+    </div>
+</body>
+</html>
