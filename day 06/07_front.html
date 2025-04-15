@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- 파일마다 링크를 추가 -->
     <link rel="stylesheet" href="../reset/reset.css">
     <!-- 
         width : 100% : 가로전체
@@ -11,6 +12,10 @@
         vh / vw : 모니터(브라우저) 기준 높이
         heigth : 100vh : 모니터 꽉 차게
     -->
+        <style>
+            /* 링크를  css 내부로 이동*/
+            /*@import url(../reset/reset.css);*/
+        </style>
         <style>
            body{
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -26,7 +31,7 @@
             }
             .header{
                 display: flex;
-                justify-content: space-between
+                justify-content: space-between;
             }
             .rowHeader{
                 display: flex;

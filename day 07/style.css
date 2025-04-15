@@ -1,0 +1,144 @@
+@font-face {
+    font-family: "noto_sans_kr";
+    src: url(../font/noto_sans/NotoSansKR-VariableFont_wght.ttf);
+}
+body{
+    font-family: noto_sans_kr;
+    color: black;
+}
+.wrap{
+    width: 100%;
+    min-width: 1200px;
+}
+.inner{
+    width: 1170px;
+    margin: auto;
+    box-sizing: border-box;
+}
+.wrap>header>.inner>ul{
+    display: flex;
+    text-align: center;
+    justify-content: right;
+    padding: 10px;
+}
+.wrap>header>.inner>ul>li{
+    margin: 10px 20px;
+    position: relative;
+}
+.wrap>header>.inner>ul>li>a{
+    font-size: 14px;
+}
+.wrap>header>.inner>ul>li>a:hover{
+    color: green;
+}
+.wrap>header>.inner>ul>li:nth-child(3)>a{
+    color: rgb(92, 92, 92);
+}
+.wrap>header>.inner>ul>li:nth-child(3)>a:hover{
+    color: black;
+}
+.wrap>header>.inner>h1{
+    position: absolute;
+    top: 25px;
+}
+.wrap>header>.inner>nav>ul{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.wrap>header>.inner>nav>ul>li{
+    padding: 10px 30px 40px;
+}
+.wrap>header>.inner>nav>ul>li>a{
+    font-size: 18px;
+    font-weight: 600;
+}
+.wrap>header>.inner>nav>ul>li>a:hover{
+    color: green;
+}
+.bold{
+    font-weight: bold;
+}
+.re{
+    position: relative;
+}
+.before::before{
+    content: "";
+    background: grey;
+    width: 1px;
+    height: 13px;
+    position: absolute;
+    top: 3px;
+    left: -20px;
+}
+
+/* 슬라이드 그림 */
+section{
+    width: 100%;
+    height: 725px;
+    background-image: url(../image/민속박물관/202005111050316900.jpg);
+}
+section>ul{
+    margin: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+.img1:hover{
+    background: url(../image/민속박물관/imgRoll_prev_on.png);
+}
+.img2:hover{
+    content: url(../image/민속박물관/imgRoll_next_on.png);
+}
+/* main-con1 */
+main>.con-box{
+    width: 100%;
+}
+main>.con-box>{
+    padding: 120px 0;
+}
+main>.con1>.inner{
+    /* height: 80px; */
+    padding: 10px;
+}
+main>.con1>.inner>a{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    height: 60px;
+}
+main>.con1>.inner>a>img{
+    width: 30px;
+    margin-right: 20px;
+}
+main>.con1>.inner>a>.time{
+    display: flex;
+    justify-content: space-around;
+}
+main>.con1>.inner>a>.time>p{
+    margin-right: 30px;
+    font-weight: 800;
+}
+main>.con1>.inner>a>.time>.ti{
+    display: flex;
+    justify-content: space-around;
+    margin-right: 30px;
+}
+main>.con1>.inner>a>.time>.ti>p:first-child{
+    margin-right: 15px;
+}
+main>.con1>.inner>a>.time>.ti>p:last-child{
+    font-weight: 800;
+}
+.before19::before{
+    content: "";
+    background: grey;
+    width: 1px;
+    height: 19px;
+    position: absolute;
+    left: -15px;
+}
