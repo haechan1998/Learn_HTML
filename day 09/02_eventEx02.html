@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+<body>
+    <form action="">
+        <div class="flex">
+        <div><div>가격 : </div><input type="text" id="price" placeholder="원"></div>
+        <div><div>할인율 : </div><input type="text" id="rate" placeholder="%"></div>
+        <button type="button" onclick="showPrice()">할인가격 계산</button>
+        </div>
+    </form>
+    <!-- 가격 할인율 할인금액 지불금액 -->
+    <h3 id="result"></h3>
+
+    <script>
+
+        function showPrice(){
+            let price = Number(document.getElementById('price').value);
+            let rate = Number(document.getElementById('rate').value);
+            let subPrice = (price * (rate/100)).toFixed();
+            let resultPrice = (price - subPrice).toFixed();
+
+            let result = `<h3> 가격 : ${price} / 할인율 : ${rate}% / 할인금액 : ${subPrice} / 지불금액 : ${resultPrice}  </h3>`
+            document.getElementById('result').innerHTML = result;
+        }
+
+    </script>
+</body>
+</html>

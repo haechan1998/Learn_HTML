@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tag{
+            text-align: center;
+            font-weight: bold;
+        }
+        form{
+            width: 350px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            flex : 1 1 40%; 
+        }
+        form>div{
+            width: 50%;
+            height: 30px;
+        }
+        form>.faverList{
+            width: 90%;
+        }
+        form input{
+            width: 40%;
+        }
+        button{
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>구조에 따른 자바스크립트 객체 생성</h1>
+    <form action="">
+        <div>이름: </div><input type="text" id="name">
+        <div>주소: </div><input type="text" id="address">
+        <div class="faverList">좋아하는 리스트: </div>
+        <div>리스트1 : </div><input type="text" id="favor1">
+        <div>리스트2 : </div><input type="text" id="favor2">
+        <div>리스트3 : </div><input type="text" id="favor3">
+        <div>이메일 : </div><input type="text" id="email">
+        <div>내가 가장 좋아하는 것 : </div><input type="text" id="wanna">
+        <button type="button" onclick="getDatas()">객체로 전송</button>
+        <div>전송받은 데이터 표로</div><button type="button" id="printBtn">출력</button>
+    </form>
+    <table id="dataTable" border="1"></table>
+
+    <script>
+
+        const dataObject = {
+            name : '',
+            address : '',
+            favors : {
+                favor1 : '',
+                favor2 : '',
+                favor3 : '',
+            },
+            email : '',
+            wanna : '',
+       };
+       console.log(dataObject);
+
+       function getDatas(){
+           dataObject.name = document.getElementById('name').value;
+           dataObject.address = document.getElementById('address').value;
+           dataObject.favors.favor1 = document.getElementById('favor1').value;
+           dataObject.favors.favor2 = document.getElementById('favor2').value;
+           dataObject.favors.favor3 = document.getElementById('favor3').value;
+           dataObject.email = document.getElementById('email').value;
+           dataObject.wanna = document.getElementById('wanna').value;
+
+           console.log(dataObject);
+       }
+
+       document.getElementById('printBtn').addEventListener('click',function(){
+            dataObject.name = document.getElementById('name').value;
+            dataObject.address = document.getElementById('address').value;
+            dataObject.favors.favor1 = document.getElementById('favor1').value;
+            dataObject.favors.favor2 = document.getElementById('favor2').value;
+            dataObject.favors.favor3 = document.getElementById('favor3').value;
+            dataObject.email = document.getElementById('email').value;
+            dataObject.wanna = document.getElementById('wanna').value;
+            let table =
+             `
+            <tr><td class = "tag">이름</td><td>${dataObject.name}</td></tr>
+            <tr><td class = "tag">거주지</td><td>${dataObject.address}</td></tr>
+            <tr>
+                <td class = "tag">좋아하는 리스트</td>
+                <td>
+                    <ul>
+                        <li>${dataObject.favors.favor1}</li>
+                        <li>${dataObject.favors.favor2}</li>
+                        <li>${dataObject.favors.favor3}</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr><td class = "tag">이메일</td><td>${dataObject.email}</td></tr>
+            <tr><td class = "tag">가장 좋아하는 것</td><td>${dataObject.wanna}</td></tr>
+             `
+            document.getElementById('dataTable').innerHTML = table;
+       });
+
+    </script>
+
+</body>
+</html>
