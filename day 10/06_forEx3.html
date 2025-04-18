@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        가위 바위 보를 10번 하여 승률 출력
+    </h1>
+    <button type="button" id="btn">승률출력</button>
+    <h3>
+        10 Game 의 승률은 <span id="result"></span>% 입니다.
+    </h3>
+
+    <script>
+        // 가위 바위 보 게임
+        // com = random / player = random
+        // 1 = 가위 , 2 = 바위 , 3 = 보
+
+        // 승률계산 (승 / (10-무)) * 100 소수점 2자리까지 표현
+        // console 에 com / player 결과출력
+
+        document.getElementById('btn').addEventListener('click', function(){
+
+            let result = document.getElementById('result');
+            let count = 0, win = 0, draw = 0;
+            
+            while(count < 10){
+                
+                let player = Math.floor(Math.random()*3+1);
+                let com = Math.floor(Math.random()*3+1);
+                if(player != 3){
+                    if(player > com){
+                        win++;
+                        console.log('승');
+                    }else if(player == com){
+                        draw++;
+                        console.log('무');
+                    }else{
+                        console.log('패');
+                    }
+                }else{
+                    if(com == 1){
+                        console.log('패');
+                    }else if(com == 2){
+                        win++;
+                        console.log('승');
+                    }else{
+                        draw++;
+                        console.log('무');
+                    }
+                };
+                count++;
+            };
+            // 승률계산 (승 / (10-무)) * 100 소수점 2자리까지 표현
+            let rate = ((win / (count-draw)) * 100).toFixed(2);
+
+            result.innerText = `${rate}`;
+            console.log('-------------');
+        });
+
+    </script>
+
+</body>
+</html>
