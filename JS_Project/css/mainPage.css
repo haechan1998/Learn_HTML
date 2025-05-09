@@ -1,0 +1,356 @@
+/*  메인페이지 슬라이드 */
+
+
+.slide_list{
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+    width: 1400px;
+}
+.slide_list>.button_div{
+    position: absolute;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    top: 50%;
+    left: 2.5%;
+    z-index: 10;
+}
+.slide_list>div>button{
+    border: none;
+    background-color:transparent;
+    outline: none;
+    padding: 0;
+}
+.slide_list>div>button>svg{
+    color: white;
+    width: 40px;
+    height: 40px;
+}
+.slide_list>div>button:hover{
+    cursor: pointer;
+}
+.slide_section{
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+}
+.slide_section>img{
+    display: block;
+}
+
+
+/* 차량 정보 */
+section>.inner>.contents_section{
+    padding: 50px 0;
+    margin: 60px 0;
+    box-sizing: content-box;
+}
+section>.inner>.contents_section>.content_head{
+    font-size: 25px;
+    padding: 20px 0;
+}
+.content_head>.tit1{
+    padding: 40px 0;
+}
+
+/* 메인 차량 정보 */
+.contents_section>.constent_container{
+    display: flex;
+    justify-content: space-between;
+    height: 700px;
+}
+.contents_section>.constent_container>.left_MainBox{
+    width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.contents_section>.constent_container>.left_MainBox>.imgBox{
+    flex: 1 1 100%;
+    height: 45%;
+}
+/* 메인 차량 이미지 크기 조절. */
+.left_MainBox>.imgBox>a>img{
+    width: 500px;
+    height: 100%;
+    object-fit: cover;
+}
+.contents_section>.constent_container>.left_MainBox>.infoBox{
+    box-sizing: border-box;
+    padding-top: 40px;
+    flex: 1 1 100%;
+    height: 55%;
+}
+.left_MainBox>.infoBox p{
+    padding-top: 20px;
+}
+.left_MainBox>.infoBox .carName{
+    font-size: 28px;
+    font-weight: 500;
+}
+.left_MainBox>.infoBox .carPrice{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+/* 서브 차량 정보 */
+.contents_section>.constent_container>.rigth_subBox{
+    width: 600px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.contents_section>.constent_container>.rigth_subBox>.box{
+    display: flex;
+    justify-content: space-between;
+    flex: 1 1 100%;
+    margin-bottom: 20px;
+    text-align: right;
+}
+.rigth_subBox>.box>.subImgBox{
+    width: 230px;
+    height: 100%;
+}
+.rigth_subBox>.box>.subImgBox>a>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.rigth_subBox>.box>.subInfo{
+    font-size: 14px;
+    padding: 10px 0;
+    line-height: 18px;
+}
+.rigth_subBox>.box>.subInfo p{
+    padding: 2px;
+}
+.rigth_subBox>.box>.subInfo .carName{
+    font-size: 15px;
+    font-weight: 600;
+}
+.rigth_subBox>.box>.subInfo .carPrice{
+    font-weight: 600;
+    
+}
+
+
+/* 게시, 후기 슬라이드 */
+.after_purchase_post{
+    height: 400px;
+    margin: 100px 0;
+}
+.post_slide_section{
+    display: flex;
+}
+.post_slide_container {
+    margin: auto;
+    position: relative;
+}
+
+.post_slide_section {
+    display: flex;
+    width: max-content;
+    animation: scrollSlide 60s linear infinite;
+}
+.post_slide_container:hover .post_slide_section {
+    animation-play-state: paused; /* 마우스 호버 시 정지 */
+}
+
+.review-card {
+    flex: 0 0 auto;
+    margin-right: 30px;
+    background: #eee;
+    padding: 1rem;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* keyframes: 왼쪽으로 계속 이동 */
+@keyframes scrollSlide {
+0% {
+    transform: translateX(0);
+}
+100% {
+    transform: translateX(-50%);
+}
+}
+
+.review-card {
+    width: 300px;
+    height: 400px;
+    background: #f7f7f7;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom: 8px;
+  }
+
+  .review-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    line-height: 25px;
+  }
+
+  .review-card p {
+    margin: 8px 4px;
+    line-height: 25px;
+  }
+
+  .review-card .stars {
+    margin-bottom: 30px;
+    color: #00bcd4;
+    font-size: 18px;
+  }
+
+  .review-card small {
+    color: #777;
+  }
+
+/* 지도 */
+#map {
+    height: 300px;
+    width: 100%;
+    max-width: 600px;
+    margin-left: 60px;
+    border-radius: 10px;
+    border: 1px solid #5d646735;
+}
+.map-controls {
+    margin-bottom: 10px;
+    margin-left: 60px;
+}
+#address {
+    outline: none;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 250px;
+}
+.mapBtn {
+    padding: 6px 10px;
+    background-color: #55B3E4;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.positionDiv{
+    width: 500px;
+    height: 300px;
+    /* background-color: rgba(128, 255, 0, 0.358); */
+    position: absolute;
+    right: 30px;
+    top: 1620px;
+}
+.positionDiv>p{
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+
+
+/* 날씨 및 추천장소 */
+.weather_section{
+    height: 700px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.weather_section>.WS_box{
+    padding: 40px 20px;
+    width: 500px;
+}
+/* 날씨 박스 */
+.widget>.topbox>h3{
+    text-align: center;
+    font-size: 24px;
+}
+.selectBar{
+    appearance:none;
+    outline: none;
+    width: 200px;
+    height: 30px;
+    border-radius: 15px;
+    text-align: center;
+}
+.selectBar:hover{
+    cursor: pointer;
+}
+.topbox>.selectDiv button{
+    background-color: white;
+    border: none;
+    line-height: 10px;
+    width: 30px;
+    height: 30px;
+}
+.selectDiv button:hover{
+    cursor: pointer;
+    color: gray;
+}
+.selectDiv{
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+}
+.topbox>.weather-tit{
+    text-align: center;
+}
+.bottomBox{
+    height: 490px;
+    background-image: url(../image/ChatGPT\ Image\ 2025년\ 5월\ 7일\ 오후\ 10_09_48.png);
+    background-size: cover;
+}
+.weather-card{
+    /* background-color: rgba(128, 128, 128, 0.192); */
+    border-radius: 15px;
+    /* background-color: rgba(181, 234, 255, 0.425); */
+    padding: 20px; 
+}
+.weather-card p{
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    font-weight: 600;
+}
+
+/* 드라이브 추천 박스 */
+.weather_section>.driveBox{
+    position: relative;
+    font-size: 25px;
+    height: 575px;
+    background-image: url(../image/KakaoTalk_20250507_155057464_01.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 0 130px;
+    background-color: rgba(180, 241, 122, 0.637);
+    border-radius: 25px;
+}
+.weather_section>.driveBox>.imgDiv{
+    position: absolute;
+    background-image: url(../image/KakaoTalk_20250507_155057464.gif);
+    width: 400px;
+    height: 376px;
+    z-index: -1;
+    top: -200px;
+    left: 320px;
+}
+.weather_section>.driveBox>h3{
+    padding-bottom: 20px;
+}
+.weather_section>.driveBox>p>.more{
+    font-size: 16px;
+    font-weight: 600;
+}
+.weather_section>.driveBox>p>.more::after{
+    content: "";
+    display: block;
+    background: url(../image/mainCon3_banner_icon.png) no-repeat center;
+    width: 60px;
+    height: 20px;
+    position: absolute;
+    top: 92px;
+    left: 72px;
+}
+span{
+    color: #00bcd4;
+}

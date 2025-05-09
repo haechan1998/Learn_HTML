@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../reset/reset.css">
+    <style>
+        body{
+            margin-top: 50px;
+            text-align: center;
+        }
+        .travel{
+            margin: auto;
+            width: 300px;
+            font-size: 40px;
+            border: 3px solid black;
+            padding: 5px;
+        }
+        .menuBar{
+            margin-top: 40px;
+        }
+        .menu{
+            display: flex;
+            justify-content: space-evenly;
+            width: 400px;
+            margin: auto;
+            font-size: 30px;
+        }
+        .menu li>button{
+            border: none;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .menu li>button:hover{
+            cursor: pointer;
+        }
+        .menu li>button:active{
+            color: darkgray;
+        }
+        section{
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="travel">Travel</h1>
+        <div class="menuBar">
+            <ul class="menu">
+                <li>
+                    <button type="button" id="img1">Home</button>
+                </li>
+                <li>
+                    <button type="button" id="img2">Seoul</button>
+                </li>
+                <li>
+                    <button type="button" id="img3">Tokyo</button>
+                </li>
+                <li>
+                    <button type="button" id="img4">Paris</button>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <section>
+        <img src="../image/비행기.jpg" alt="" id="mainImg" width="800" height="500">
+    </section>
+
+    <script>
+
+        document.addEventListener('click', (e) => {
+            console.log(e.target.id);
+            if(e.target.id == 'img1'){
+                document.getElementsByTagName('img')[0].src = "../image/비행기.jpg";
+            }else if(e.target.id == 'img2'){
+                document.getElementsByTagName('img')[0].src = "../image/강아지.jpg";
+            }else if(e.target.id == 'img3'){
+                document.getElementsByTagName('img')[0].src = "../image/강아지2.jpg";
+            }else if(e.target.id == 'img4'){
+                document.getElementsByTagName('img')[0].src = "../image/강아지3.jpg";
+            }
+
+        })
+
+
+    </script>
+
+</body>
+</html>

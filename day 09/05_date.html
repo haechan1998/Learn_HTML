@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>날짜 관련 함수</h1>    
+    <ul>
+        <li>
+            new Date(); => 오늘 날짜 리턴
+        </li>
+        <li>
+            getFullYear(); : 연도만 리턴
+        </li>
+        <li>
+            getMonth()+1; : 월만 리턴 0~11월 +1
+        </li>
+        <li>
+            getDate(); : 일만 (1~31)리턴
+        </li>
+        <li>
+            getDay(); : 요일 0(일)~6(토)
+        </li>
+        <li>
+            getHours();, getMinute();, getSeconds(); : 시 분 초 값 추출
+        </li>
+    </ul>
+
+    <script>
+
+        let today = new Date();
+        console.log(today);
+        console.log(today.getFullYear());
+        console.log(today.getMonth()+1);
+        console.log(today.getDate());
+        console.log(today.getDay());
+        console.log(today.getHours());
+        console.log(today.getMinutes());
+        console.log(today.getSeconds());
+
+        let todayString = today.toLocaleDateString();
+        console.log(todayString); // 2025. 4. 17.
+        console.log(today.toLocaleTimeString()); // 오후 2:22:16
+        console.log(today.toDateString()); // Thu Apr 17 2025
+        console.log(today.toLocaleString()); // 2025. 4. 17. 오후 2:22:45
+
+    </script>
+
+</body>
+</html>

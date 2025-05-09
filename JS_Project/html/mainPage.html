@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DriveAgain</title>
+    <link rel="stylesheet" href="../css/defaultStyle.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/mainPage.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+
+<body>
+    <!-- 
+        
+    화면 구조.
+    default width 1980
+    inner width 1200
+    
+    header
+    nav
+    section >
+    main banner
+    contents
+    post
+    weather
+    map
+    footer
+
+    -->
+    <header class="header"  href="#top">
+        <div class="grey">
+            <div class="inner">
+                <!-- 로그인 / 회원가입 -->
+                <ul class="topHeader logoutDiv" id="topHeader">
+                    <li>
+                        <a href="../html/login.html" class="loginbtn before">로그인</a>
+                    </li>
+                    <li>
+                        <a href="../html/sign.html" class="joinMembership">회원가입</a>
+                    </li>
+                </ul>
+                <ul class="topHeader loginDiv" id="topHeader">
+                    <li>
+                        <button id="logoutBtn">로그아웃</button>
+                    </li>
+                    <li>
+                        <a href="../html/myPage.html" class="joinMembership">마이페이지</a>
+                    </li>
+                </ul>
+                <div class="bottomHeader">
+                    <div class="logo">
+                        <a href="../html/mainPage.html"><img src="../image/mainLogo3.png" alt=""
+                                class="main_Logo" /></a>
+                    </div>
+                    <nav>
+                        <ul class="navBar">
+                            <li class="bold"><a href="../html/sell.html">내차팔기</a></li>
+                            <li class="bold"><a href="../html/searchBoard.html">내차사기</a></li>
+                            <li><a href="../html/driveMain.html">드라이브코스</a></li>
+                            <li><a href="../html/eventPage.html">이벤트</a></li>
+                            <li><a href="../html/exhibitionPage.html">기획전</a></li>
+                            <li><a href="../html/qeustion.html">공지사항</a></li>
+                        </ul>
+                    </nav>
+                    <ul class="myImpormation">
+                        <li><a href="" id="myPage">마이페이지</a></li>
+                        <li>
+                            <button type="button" class="menuBtn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-list" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                                </svg>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="toggleSection" class="toggleRe">
+                <!-- 햄버거 메뉴바를 클릭하면 나올 창. -->
+                <div class="inner">
+                    <div class="toggleMene">
+                        <div class="menu menu1">
+                            <p>내차사기 / 내차팔기</p>
+                            <ul>
+                                <!-- 혜원씨자리 -->
+                                <li><a href="../html/searchBoard.html">차량검색</a></li>
+                                <li><a href="../html/sell.html">내차팔기</a></li>
+                                <li><a href="../html/priceChart.html">차량시세</a></li>
+                            </ul>
+                        </div>
+                        <div class="menu menu2">
+                            <p>드라이브코스</p>
+                            <ul>
+                                <li><a href="../html/drive1.html">설악산 드라이브 길</a></li>
+                                <li>
+                                    <a href="../html/drive2.html">높은고개 드라이브 길</a>
+                                </li>
+                                <li><a href="../html/drive3.html">바다 드라이브 길</a></li>
+                            </ul>
+                        </div>
+                        <div class="menu menu3">
+                            <p>이벤트 / 기획전</p>
+                            <ul>
+                                <li><a href="../html/eventPage.html">이벤트</a></li>
+                                <li><a href="../html/exhibitionPage.html">기획전</a></li>
+                            </ul>
+                        </div>
+                        <div class="menu menu4">
+                            <p>공지사항</p>
+                            <ul>
+                                <!-- 주선씨자리 -->
+                                <li><a href="../html/qeustion.html">자주묻는질문</a></li>
+                            </ul>
+                        </div>
+                        <div class="menu menu5">
+                            <p>티저영상</p>
+                            <ul>
+                                <li><a href="../html/screen.html">티저영상</a></li>
+                            </ul>
+                        </div>
+                        <button type="button" class="menuBtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-arrow-bar-up" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5m-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <script src="../js/header.js"></script>
+    <section>
+        <!-- 슬라이드 -->
+        <div class="slide_list">
+            <div class="button_div">
+                <!-- 버튼 이미지 바꾸기 -->
+                <button id="pre_btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-chevron-compact-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223" />
+                    </svg>
+                </button>
+                <button id="next_btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671" />
+                    </svg>
+                </button>
+            </div>
+            <div class="slide_section" id="slide_section_id">
+                <a href="https://certified.hyundai.com/p/display/buyMycarInfo.do"><img src="../image/main_banner01.jpg" alt="banner1" /></a>
+                <a href="https://certified.hyundai.com/p/display/getSpdpInfo.do?catNo=80000010359"><img src="../image/main_banner02.jpg" alt="banner2" /></a>
+                <a href="https://certified.hyundai.com/p/display/getSpdpInfo.do?catNo=80000010364"><img src="../image/main_banner03.jpg" alt="banner3" /></a>
+                <a href="https://certified.hyundai.com/p/display/getSpdpInfo.do?catNo=80000010360"><img src="../image/main_banner04.jpg" alt="banner4" /></a>
+            </div>
+        </div>
+        <div class="inner">
+            <!-- 차량 요약 정보 -->
+            <div class="contents_section">
+                <div class="content_head">
+                    <p class="tit1">이것만 봐도 문제 없을거같은데?</p>
+                    <h4 class="tit2"><span>D.A</span> TOP5</h4>
+                </div>
+                <div class="constent_container">
+                    <div class="left_MainBox">
+                        <!-- 이미지박스 -->
+                        <div class="imgBox"></div>
+                        <div class="infoBox"></div>
+                    </div>
+                    <div class="rigth_subBox">
+                        <div class="box box1">
+                            <div class="subImgBox subImg1"></div>
+                            <div class="subInfo subInfoBox1"></div>
+                        </div>
+                        <div class="box box2">
+                            <div class="subImgBox subImg2"></div>
+                            <div class="subInfo subInfoBox2"></div>
+                        </div>
+                        <div class="box box3">
+                            <div class="subImgBox subImg3"></div>
+                            <div class="subInfo subInfoBox3"></div>
+                        </div>
+                        <div class="box box4">
+                            <div class="subImgBox subImg4"></div>
+                            <div class="subInfo subInfoBox4"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 차량 구매 후기 (슬라이드) -->
+            <div class="after_purchase_post">
+                <div class="post_slide_container">
+                    <div class="post_slide_section" id="reviewList">
+                        <!-- 여기에 슬라이드 될 게시글.
+                        최소 5개 정도. -->
+                        <!-- <div class="post post1">게시글1</div>
+                        <div class="post post2">게시글2</div>
+                        <div class="post post3">게시글3</div>
+                        <div class="post post4">게시글4</div>
+                        <div class="post post5">게시글5</div> -->
+                        
+                        <!-- js 에서 JSON 기반으로 innerHTML -->
+                    </div>
+                </div>
+            </div>
+            <!-- 지도 -->
+            <!-- 받은 html 요소와 css 넣기. -->
+            <div class="map-container">
+                <div class="map-controls">
+                  <input type="text" id="address" placeholder="예: 강남 코리아IT아카데미">
+                  <button class="mapBtn" onclick="searchAddress()">검색</button>
+                </div>
+                <div id="map"></div>
+                <div class="positionDiv">
+                    <p>D.A 와 함께 드라이브 할 곳을 찾아봐!</p>
+                    <div></div>
+                </div>
+            </div>
+            
+              <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+              <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+              <script src="../js/map.js"></script>
+            
+            <!-- 날씨 -->
+            <div class="weather_section">
+                <div class="WS_box weatherBox">
+                    <div class="widget">
+                        <div class="topbox">
+                            <h3 class="h3">
+                                오늘, 내일 날씨 드라이브 하기 적합한지 궁금해?
+                            </h3>
+                            <div class="selectDiv">
+                                <select id="location" class="selectBar">
+                                    <optgroup label="서울특별시">
+                                        <option value="서울 종로구">서울 종로구</option>
+                                        <option value="서울 강남구">서울 강남구</option>
+                                        <option value="서울 송파구">서울 송파구</option>
+                                        <option value="서울 마포구">서울 마포구</option>
+                                    </optgroup>
+
+                                    <optgroup label="경기도">
+                                        <option value="경기 수원시">경기 수원시</option>
+                                        <option value="경기 성남시">경기 성남시</option>
+                                        <option value="경기 고양시">경기 고양시</option>
+                                        <option value="경기 용인시">경기 용인시</option>
+                                    </optgroup>
+
+                                    <optgroup label="강원특별자치도">
+                                        <option value="강원 춘천시">강원 춘천시</option>
+                                        <option value="강원 강릉시">강원 강릉시</option>
+                                        <option value="강원 원주시">강원 원주시</option>
+                                        <option value="강원 태백시">강원 태백시</option>
+                                        <option value="강원 속초시">강원 속초시</option>
+                                        <option value="강원 강릉시">강원 동해시</option>
+                                    </optgroup>
+
+                                    <optgroup label="부산광역시">
+                                        <option value="부산 해운대구">부산 해운대구</option>
+                                        <option value="부산 남구">부산 남구</option>
+                                        <option value="부산 수영구">부산 수영구</option>
+                                        <option value="부산 중구">부산 중구</option>
+                                    </optgroup>
+
+                                    <optgroup label="광주광역시">
+                                        <option value="광주 동구">광주 동구</option>
+                                        <option value="광주 북구">광주 북구</option>
+                                    </optgroup>
+
+                                    <optgroup label="인천광역시">
+                                        <option value="인천 연수구">인천 연수구</option>
+                                        <option value="인천 부평구">인천 부평구</option>
+                                    </optgroup>
+
+                                    <optgroup label="대전광역시">
+                                        <option value="대구 서구">대구 서구</option>
+                                        <option value="대구 유성구">대구 유성구</option>
+                                    </optgroup>
+
+                                    <optgroup label="울산광역시">
+                                        <option value="울산 남구">울산 남구</option>
+                                        <option value="울산 중구">울산 중구</option>
+                                    </optgroup>
+
+                                    <optgroup label="충청북도">
+                                        <option value="충북 청주시">충북 청주시</option>
+                                    </optgroup>
+
+                                    <optgroup label="충청남도">
+                                        <option value="충남 천안시">충남 천안시</option>
+                                    </optgroup>
+
+                                    <optgroup label="전북특별자치도">
+                                        <option value="전북 전주시">전북 전주시</option>
+                                    </optgroup>
+
+                                    <optgroup label="전라남도">
+                                        <option value="전남 여수시">전남 여수시</option>
+                                    </optgroup>
+
+                                    <optgroup label="경상북도">
+                                        <option value="경북 포항시">경북 포항시</option>
+                                    </optgroup>
+
+                                    <optgroup label="경상남도">
+                                        <option value="경남 창원시">경남 창원시</option>
+                                    </optgroup>
+
+                                    <optgroup label="대구광역시">
+                                        <option value="대구 중구">대구 중구</option>
+                                        <option value="대구 중구">대구 수성구</option>
+                                    </optgroup>
+
+                                    <optgroup label="제주특별자치도">
+                                        <option value="제주 제주시">제주 제주시</option>
+                                        <option value="제주 서귀포시">제주 서귀포시</option>
+                                    </optgroup>
+                                </select>
+                                <button onclick="getWeather()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-search" viewBox="0 0 16 16">
+                                        <path
+                                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="bottomBox">
+                            <div id="weather" style="margin-top: 10px"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="WS_box driveBox">
+                    <h3><span>Drive Again</span>에서 추천하는 드라이브 코스</h3>
+                    <!-- a 태그 링크에 민수씨 링크 달기 -->
+                    <p><a class="more" href="../html/driveMain.html">바로가기</a></p>
+                    <div class="imgDiv"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <a href="" id="top">
+            <div class="topBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                    <path
+                        d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                </svg>
+                TOP
+            </div>
+        </a>
+        <div class="inner">
+            <div class="logo">
+                <a href="../html/mainPage.html"><img src="../image/mainLogo3.png" alt="" class="main_Logo" /></a>
+            </div>
+            <!--  -->
+            <ul class="footer_impormation">
+                <li id="comName">상호명:Drive Again</li>
+                <li>사업자등록번호:101-10-10001</li>
+                <li>이메일:email@gmail.com</li>
+                <li>대표번호:000-0000-0000</li>
+                <li>COPYRIGHT © D.A MOTOR COMPANY. ALL RIGHTS RESERVED.</li>
+            </ul>
+            <ul class="footer_service">
+                <li><a href="">서비스 이용약관</a></li>
+                <li><a href="https://privacy.hyundai.com/overview/full-policy">고객정보 처리방침</a></li>
+                <li><a href="">한국어</a></li>
+                <li><a href="">English</a></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="../js/mainPage.js"></script>
+    <script src="../js/weather.js"></script>
+</body>
+
+</html>

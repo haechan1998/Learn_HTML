@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>오늘은???</h1>
+    <button type="button" id="btn">Today</button>
+    <h3 id="result"></h3>
+        <!-- 오늘날짜와 요일 출력 -->
+        <!-- 2025. 04. 17. (목) -->
+
+
+    <script>
+        document.getElementById('btn').addEventListener('click', ()=>{
+            let today = new Date();
+            let ymd = today.toLocaleDateString();
+            let day = today.getDay();
+            let str = '';
+            
+            switch(day){
+                case 0: str='(일)'; break;
+                case 1: str='(월)'; break;
+                case 2: str='(화)'; break;
+                case 3: str='(수)'; break;
+                case 4: str='(목)'; break;
+                case 5: str='(금)'; break;
+                case 6: str='(토)'; break;
+                default: str='오류'; break;
+            }
+
+            document.getElementById('result').innerText = `${ymd} ${str}`;
+        });
+
+    </script>
+
+</body>
+</html>

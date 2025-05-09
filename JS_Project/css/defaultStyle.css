@@ -1,0 +1,206 @@
+@font-face {
+    font-family: NotoSansKR-Regular;
+    src: url(../font/Noto_Sans_KR/static/NotoSansKR-Regular.ttf);
+}
+body{
+    overflow-x: hidden;
+    overflow-anchor: auto;
+    font-family: NotoSansKR-Regular;
+}
+.inner{
+    position: relative;
+    margin: auto;
+    width: 1200px;
+    
+}
+.header{
+    background-color: white;
+    padding: 20px 0;
+    position: sticky;
+    top: 0px;
+    transition: transform 0.4s ease-in-out;
+    z-index: 1000;
+}
+
+.hide {
+    transform: translateY(-250%);
+}
+.bold{
+    font-weight: bold;
+}
+.main_Logo{
+    width: 160px;
+    height: 50px;   
+}
+
+/* 위쪽 헤더 */
+
+
+.topHeader{
+    background-color: white;
+    display: flex;
+    justify-content: flex-end;
+    height: 30px;
+    line-height: 30px;
+}
+.topHeader>li:first-child{
+    padding-right: 10px;
+}
+.topHeader>li>a{
+    font-size: 12px;
+}
+/* .loginDiv{
+    display: none;
+}
+.logoutDiv{
+    display: none;
+} */
+/* 아래쪽 헤더 */
+#logoutBtn{
+    font-size: 12px;
+    border: none;
+    outline: none;
+    background-color: white;
+}
+#logoutBtn:hover{
+    cursor: pointer;
+}
+.id{
+    font-size: 12px;
+    line-height: 35px;
+    padding-left: 10px;
+}
+
+.bottomHeader{
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+.navBar{
+    display: flex;
+    margin-right: 100px;
+}
+.navBar>li{
+    padding: 0 30px;
+}
+.myImpormation{
+    display: flex;
+    align-items: center;
+}
+.myImpormation>li:nth-child(1),.myImpormation>li:nth-child(2){
+    padding-right: 20px;
+}
+.myImpormation>li:nth-child(2)>button{
+    border: none;
+    background-color: transparent;
+    padding-top: 5px;
+}
+.myImpormation>li:nth-child(2)>button:hover{
+    cursor: pointer;
+}
+.myImpormation>li:nth-child(2)>button>svg{
+    width: 30px;
+    height: 30px;
+}
+.before::before{
+    position: absolute;
+    content: "";
+    background: rgba(128, 128, 128, 0.4);
+    width: 1px;
+    height: 13px;
+    top: 11px;
+    right: 48px;
+}
+#toggleSection{
+    width: 100vw;
+    position: absolute;
+    z-index: 20;
+    background-color: rgb(255, 255, 255);
+    left: 50%;
+    transform: translateX(-50%);
+}
+#toggleSection>.inner{
+    height: 200px;
+}
+.toggle{
+    visibility: visible;
+}
+.toggleRe{
+    visibility: hidden;
+}
+.toggleMene{
+    display: flex;
+    justify-content: space-evenly;
+}
+.toggleMene p{
+    font-weight: 700;
+    padding: 20px 0;
+}
+.toggleMene>.menu{
+    width: 150px;
+}
+.toggleMene>.menu li{
+    padding: 5px 0;
+}
+.toggleMene>.menu li>a{
+    font-size: 14px;
+    color: rgb(41, 41, 41);
+}
+.toggleMene button{
+    position: absolute;
+    border: none;
+    top: 170px;
+    background-color: white;
+}
+.toggleMene button:hover{
+    cursor: pointer;
+}
+
+
+/* 풋터 */
+footer>.inner{
+    padding-top: 30px;
+}
+.footer_impormation{
+    margin-top: 30px;
+    font-size: 12px;
+    line-height: 25px;
+}
+.footer_impormation>li:last-child{
+    color: gray;
+}
+.footer_service{
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+}
+.footer_service>li{
+    margin: 0 15px;
+}
+
+/* top 버튼 */
+.topBtn{
+    position: fixed;
+    right: 50px;
+    bottom: 100px;
+    width: 80px;
+    height: 80px;
+    border: 1px solid rgba(189, 189, 189, 0.616);
+    text-align: center;
+    line-height: 80px;
+    font-weight: 600;
+    border-radius: 10px;
+    background-color: white;
+    z-index: 100;
+}
+.topBtn>svg{
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 8px;
+    left: 30px;
+}
+/* color: #00bcd4; */

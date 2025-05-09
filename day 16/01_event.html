@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        document 영역에서 사용되는 이벤트를 정의
+    </h1>
+
+    <ul>
+        <li>
+            마우스 이벤트 : click(), focus(), input(), change(), mouseover(),
+            mouseout(), scroll()...
+        </li>
+        <li>
+            키보드 이벤트 : keyDown(), keyPress(), KeyUp()
+        </li>
+        <li>
+            기타 이벤트 : preventDefault() // a태그의 이벤트를 막을 때 사용한다. (a 태그와 event 가 같이 있을 경우.)
+            target
+            {submit(), reset()} => form 태그 안에서 사용.
+        </li>
+        <li>
+            addEventListener('eventName', callback function);
+            메서드를 사용하여 구현하는 것을 권장
+        </li>
+        <li>
+            하나의 객체에 이벤트 중복 부여 가능
+        </li>
+    </ul>
+
+    <div class="container">
+        <img src="../image/강아지3.jpg" id="dog" alt="">
+    </div>
+
+    <script>
+
+        document.getElementById('dog').addEventListener('mouseover', () => {
+            document.getElementById('dog').src = '../image/강아지.jpg';
+        });
+
+        document.getElementById('dog').addEventListener('mouseout', () => {
+            document.getElementById('dog').src = '../image/강아지3.jpg';
+        });
+
+    </script>
+
+
+</body>
+</html>

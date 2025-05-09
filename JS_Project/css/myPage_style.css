@@ -1,0 +1,163 @@
+body {
+    margin: 0;
+    background-color: #ffffff;
+    min-width: 1200px;
+  }
+  .inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  .container {
+    display: flex;
+    gap: 40px;
+    padding: 20px;
+  }
+  .main-area {
+    flex: 2;
+  }
+  .sidebar {
+    flex: 1;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+  .welcome-box h2 {
+    margin-bottom: 0;
+  }
+  .info-section {
+      margin: 40px 0;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+    
+    .info-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .info-row:last-child {
+      border-bottom: none;
+    }
+    
+    .info-row label {
+      width: 100px;
+      font-weight: bold;
+      color: #333;
+      text-align: left;
+    }
+    
+    .info-row input {
+      flex: 1;
+      padding: 10px 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background: #fafafa;
+    }
+    
+    .info-row input:focus {
+      border-color: #507dbc;
+      outline: none;
+      background: #fff;
+    }
+    
+    .info-row button {
+      padding: 8px 16px;
+      border: none;
+      background-color: #507dbc;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .info-row button:hover {
+      background-color: #3e5d99;
+    }
+  .box {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+  .box h3 {
+    margin-top: 0;
+    font-size: 18px;
+  }
+
+  
+  .smartcare-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .smartcare-item {
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .smartcare-item img {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .smartcare-item p {
+    margin-top: 8px;
+    font-size: 14px;
+  }
+  .sidebarContainer{
+      margin-top: 30px;
+  }
+  .support-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+  }
+  .support-item {
+      background: #ffffff;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid rgb(211, 211, 211);
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      cursor: pointer;
+  }
+    
+  .support-item img {
+      width: 24px;
+      height: 24px;
+      margin-bottom: 8px;
+  }
+    
+  .support-item p {
+      margin: 0;
+      font-size: 13px;
+      color: #333;
+  }
+
+  .support-button {
+    display: block;
+    margin-top: 20px;
+    padding: 10px;
+    background: #94a7c1;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+  }

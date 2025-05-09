@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .inner{
+        float: left;
+        width: 100px;
+        height: 100px;
+        background-color: rgb(64, 249, 188);
+        text-align: center;
+        color: aliceblue;
+        font-weight: 800;
+        line-height: 30px;
+        margin-right: 15px;
+    }
+    .inner:hover{
+        background-color: rgb(138, 244, 209,0.8);
+        transform: translate(10px,10px);
+    }
+    .p-inner::after{
+        content: "";
+        clear: both;
+        display: block;
+
+    }
+    .menubar{   
+        height: 50px;
+    }
+    .menu{
+        border: 1px solid black;
+        width: 25%;
+        height: 100%;
+        float: left;
+        box-sizing: border-box;
+        text-align: center;
+        line-height: 45px;
+        border-right: none;
+    }
+    .menu:last-child{
+        border-right: 1px solid black;
+    }
+    .menu:hover{
+        background-color: yellow;
+        cursor: pointer;
+    }
+
+</style>
+<body>
+    <div class="p-inner">
+        <div class="inner">T</div>
+        <div class="inner">H</div>
+        <div class="inner">A</div>
+        <div class="inner">N</div>
+        <div class="inner">K</div>
+        <div class="inner">S</div>
+    </div>
+    <br>
+        <div class="menubar">
+            <div class="menu">메뉴1</div>
+            <div class="menu">메뉴2</div>
+            <div class="menu">메뉴3</div>
+            <div class="menu">메뉴4</div>
+        </div>        
+</body>
+</html>

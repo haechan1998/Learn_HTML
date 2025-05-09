@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #zone{
+            width: 400px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        #zone>button:nth-child(2n-1){
+            background-color: green;
+        }
+        #zone>button:nth-child(2n){
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <button type="button" id="makeBtn">element Create</button>
+    <div id="zone"></div>
+    <div id="zone2"></div>
+    <script>
+
+        let count = 0;
+        // element create 버튼을 클릭하면 #zone 영역에 새 버튼이 생성
+        document.getElementById('makeBtn').addEventListener('click', () => {
+            document.getElementById('zone').innerHTML += `<button type="button" id="btn${count}">btn${count}</button>`;
+            count++;
+            // 새롭게 만든 버튼이 인지되는 곳
+        });
+
+        // 새롭게 만든 btn 이 클릭되면 <h3>btn이 클릭되었습니다.</h3>
+        document.getElementById('zone').addEventListener('click', (e) => {
+            console.log(document.getElementById('zone2'));
+            if(e.target.id != `zone`){
+                document.getElementById('zone2').innerHTML += `<h3>${e.target.id}이 클릭되었습니다.</h3>`;
+            }
+        });
+
+    </script>
+
+</body>
+</html>

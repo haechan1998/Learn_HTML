@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    @keyframes jump{
+        0%{
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        50%{
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-52%);
+        }
+        100%{
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+    }
+    body{
+        background-color: cornflowerblue;
+        font-family: Impact, 'Arial Narrow Bold', sans-serif;
+        font-weight: 500;
+    }
+    .container{
+        position: absolute;
+        margin: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background-color: rgb(93, 208, 170);
+        border-radius: 10px;
+        box-shadow: 5px 5px 5px rgb(70, 159, 129);
+    }
+    .container:hover{
+        animation-name: jump;
+        animation-duration: 0.2s;
+        animation-iteration-count: 1;
+    }
+    .input{
+        width: 350px;
+        height: 160px;
+        margin: auto;
+        padding-top: 10px;
+        box-sizing: border-box;
+    }
+    .inputId, .inputPassword, .btn{
+        width: 300px;
+        height: 35px;
+        display: block;
+        margin: 10px auto;
+        box-sizing: border-box;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        
+    }
+    .inputId, .inputPassword{
+        padding-left: 15px;
+    }
+    body p{
+        text-align: center;
+        font-size: 12px;
+        margin-bottom: 20px;
+    }
+    a{
+        text-decoration: none;
+        color: white;
+    }
+    .btn{
+        background-color: rgb(123, 160, 57);
+        color: white;
+    }
+    .btn:hover{
+        cursor: pointer;
+    }
+    .btn:active{
+        background-color: rgb(86, 114, 38);
+    }
+    input::placeholder{
+        font-size: 14px;
+        color: hsl(0, 0%, 70%);
+    }
+
+</style>
+<body>
+    <form action="">
+        <div class="container">
+            <div class="input">
+                <input type="text" name="id" class="inputId" placeholder="아이디">
+                <input type="password" name="password" class="inputPassword" placeholder="비밀번호">
+                <button class="btn" type="submit">
+                <div class="login">로그인</div>
+                </button>
+            </div>
+            <a href="">
+            <p>비밀번호를 잊어버리셨나요?</p>
+            </a>
+        </div>
+    </form>
+</body>
+</html>

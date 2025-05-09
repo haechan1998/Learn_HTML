@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        input 2개 생성 => 과목, 점수
+        map에 추가
+        출력 => map 출력 ul => li 형태로 출력 // html : 89
+        결과 => 점수 합계, 평균, 합격여부(60이상이면 pass) => h3
+
+    -->
+    <form action="">
+    과목 : <input type="text" id="sub"> <br>
+    점수 : <input type="text" id="score"> <br>
+    <button type="button" id="submit">제출하기</button>
+    <button type="button" id="print">출력하기</button>
+    <button type="button" id="result">결과보기</button>
+    </form>
+
+    <ul id="ul"></ul>
+    <h3 id="resultPrint"></h3>
+
+
+    <script>
+
+        let sub = document.getElementById('sub');
+        let score = document.getElementById('score');
+        let sum = 0, avg = 0; pass = '';
+        
+        const subMap = new Map();
+
+        document.getElementById('submit').addEventListener('click', () => {
+            if(subMap.has(sub.value)){
+                alert('과목이 같습니다.');
+            }else{
+                if(!(score.value > 100 || score.value < 0 || isNaN(score.value))){
+                    subMap.set(sub.value, Number(score.value));
+                }else{
+                    alert('0~100 사이의 점수를 입력하세요.');
+                }
+            }
+            
+            /*if(sub.value == subMap.forEach(function(v,k){k})){
+                alert('과목이 같습니다.')
+                }*/
+                sub.value = null;
+                score.value = null;
+            });
+            
+            document.getElementById('print').addEventListener('click', () => {
+                console.log(subMap);
+                let str = '';
+            subMap.forEach(function(v,k){
+                str = `<li>과목 : ${k} / 점수 : ${v}</li>`;
+            });
+            document.getElementById('ul').innerHTML += str;
+        });
+
+        document.getElementById('result').addEventListener('click', () => {
+            subMap.forEach(function(v){
+                sum += v;
+            });
+            avg = sum / subMap.size;
+
+            if(avg >= 60){
+                pass = 'pass';
+            }else{
+                pass = 'fail';
+            };
+
+            let result = `점수 합계 : ${sum} / 평균 : ${avg.toFixed()} / 합격여부 : ${pass}`
+            document.getElementById('resultPrint').innerText = result;
+        })
+
+
+
+    </script>
+
+
+</body>
+</html>

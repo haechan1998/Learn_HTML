@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* #chart-container {
+            height: 500px;
+        } */
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>
+        BOM : Browser Object Model : 브라우저의 객체를 지칭하는 용어 (window 객체)
+        DOM : Document Object Model : 문서의 객체를 지칭하는 용어(html 안에 입력된 객체)
+    </h1>
+    <ul>
+        <li id="ih">
+            window.innerHeigth : 화면의 툴바를 제외한 안쪽 전체 높이 =>
+        </li>
+        <li id="iw">
+            window.innerWidth : 스크롤바를 포함한 너비 =>
+        </li>
+        <li>
+            윈도우의 종류, 브라우저의 종류, 화면 배율 등에 따라 달라짐
+        </li>
+    </ul>
+    <a href="02_popup.html">02_popup</a>
+
+    <script>
+
+        let ih = document.getElementById('ih');
+        let iw = document.getElementById('iw');
+
+        let inh = window.innerHeight;
+        let inw = window.innerWidth;
+        
+        ih.innerText += inh;
+        iw.innerText += inw;
+
+    </script>
+    <!-- <div id="chart-container">
+        <canvas id="chart"></canvas>
+    </div>
+
+    <script>
+        // 그래프 초기화
+        document.addEventListener("DOMContentLoaded", function() {
+            var chartContainer = document.getElementById('chart-container');
+            var chartCanvas = document.getElementById('chart');
+            var ctx = chartCanvas.getContext('2d');
+            
+            var chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: '실시간 데이터',
+                        data: [],
+                        borderColor: 'blue',
+                        borderWidth: 1,
+                        fill: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            display: true,
+                            ticks: {
+                                autoSkip: true,
+                                maxTicksLimit: 10
+                            }
+                        },
+                        y: {
+                            display: true,
+                            suggestedMin: 0,
+                            suggestedMax: 100
+                        }
+                    }
+                }
+            });
+
+            // 데이터 업데이트 함수
+            function updateData() {
+                var time = new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+                chart.data.labels.push(time);
+                chart.data.datasets[0].data.push(Math.random() * 100);
+                chart.update();
+
+                // 일정 간격으로 데이터 업데이트
+                setTimeout(updateData, 1000);
+            }
+
+            // 초기 데이터 업데이트
+            updateData();
+        });
+    </script> -->
+</body>
+</html>

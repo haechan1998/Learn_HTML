@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        querySeletor(), querySeletorAll()
+        element를 querySelectopr 형태로 인지
+    </h1>
+    <ul>
+        <li>
+            html node 객체로 리턴
+        </li>
+        <li>
+            getElementBy** : HTMLCollection 타입으로 리턴
+        </li>
+        <li>
+            querySeletor* : nodeList 형태로 리턴
+        </li>
+        <li>
+            querySeletorAll : nodeList 도 배열처럼 index 사용가능.
+        </li>
+        <li>
+            querySeletor : 구체적인 엘리먼트 접근이 가능
+        </li>
+        <li>
+            getElementBy** : 편리한 속성 접근
+        </li>
+    </ul>
+
+    <script>
+        //  querySelector : 처음 만나는 li 를 리턴
+        //  querySelectorAll : 모든 li 를 리턴
+        const li = document.querySelector('li');
+        console.log(li);
+        
+        const lis = document.querySelectorAll('li');
+        console.log(lis);
+
+        lis.forEach(v => console.log(v))
+
+
+    </script>
+
+
+</body>
+</html>

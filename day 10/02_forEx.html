@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .t, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        td{
+            width: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- 구구단 -->
+    <input type="text" id="dan">단 구구단
+    <button type="button" id="btn">구구단</button>
+    <h3 id="h3"></h3>
+
+    <hr>
+
+    <button type="button" id="btn2">구구단 전체 출력</button>
+    <div id="gugu">
+        
+    </div>
+
+    <table>
+    </table>
+
+    <script>
+
+        document.getElementById('btn').addEventListener('click', function(){
+
+            let dan = Number(document.getElementById('dan').value);
+            let result = '';
+
+            for(let i = 1; i <= 9; i++){
+
+                result = dan * i;
+                document.getElementById('h3').innerText += `${dan} * ${i} = ${result}
+                `;
+            };
+
+        });
+
+        document.getElementById('btn2').addEventListener('click', function(){
+            let result = `<table class = "t">`;
+            
+            for(let i = 1; i <= 9; i++){
+                result += `<tr>`;
+                for(let j = 1; j <=9; j++){
+                    result += `<td>${j} * ${i} = ${j*i}</td>`;
+
+                }
+                result += `</tr>`;
+            }
+            result += `</table>`;
+            document.getElementById('gugu').innerHTML = result;
+            console.log(result);
+        })
+
+        // document.getElementById('버튼이름').addEventListener('click', 함수명);
+        /*
+        document.getElementById('버튼이름').addEventListener('click', () => {
+            함수명();
+        })
+        */
+
+    </script>
+
+</body>
+</html>

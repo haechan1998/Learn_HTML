@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input event</title>
+</head>
+<style>
+</style>
+<body>
+    <h1>input. textarea, select, html element 텍스트를 받아오기</h1>
+    <ul>
+        <li>
+            input tag 는 value 속성에 값이 맵핑되어 있어서 value 속성으로 값을 가져 올 수 있음.
+        </li>
+        <li>
+            <h1></h1> 여는 태그 닫는 태그 사이에 값을 가져 올 때 innerText
+        </li>
+        <li>
+            select => option / radio / checkbox
+            value 의 값을 태그 내 속성으로 부여해주어야 선택한 값을 가져 올 수 있음.
+        </li>
+        <li>
+            value / innerText 가져오는 값은 모두 string 처리됨.
+        </li>
+        <li>
+            string 처리 된 값을 숫자로 사용하기 위해서는 변환이 필요함.
+        </li>
+    </ul>
+    <form action="">
+        <fieldset>
+            <legend>이벤트를 활용한 데이터 전송</legend>
+            id : <input type="text" id="userId"> <br>
+            pw : <input type="password" id="userPw"> <br>
+            birth : <input type="date" id="birth"> <br>
+            pin : <input type="text" id="pin"> <br>
+            <button type="button" onclick="clickEventInput()">전송</button> <br>
+            <button type="button" id="btn" onclick="makeList()">리스트만들기</button>
+        </fieldset>
+        
+    </form>
+    <h1 id="info"></h1>
+    <ol id="ol"></ol>
+    <script>
+        let userId = document.getElementById('userId').value;
+        let userPw = document.getElementById('userPw').value;
+        let birth = document.getElementById('birth').value;
+        let pin = document.getElementById('pin').value;
+
+        const info = document.getElementById('info');
+        function makeList(){
+            // 리스트 만들기 버튼을 클릭하면 ol => li로 내용을 추가
+            /*
+            let userId = document.getElementById('userId').value;
+            let userPw = document.getElementById('userPw').value;
+            let birth = document.getElementById('birth').value;
+            let pin = document.getElementById('pin').value;
+            info.innerHTML = `<li> id : ${userId}</li><li> pw : ${userPw}</li><li> birth : ${birth}</li><li> pin : ${pin}</li>`
+            */
+
+            // string => 숫자로 변경
+            // Number() : 숫자로 변경 될 수 있는 값은 변경 / 정수 + 실수
+            // parseInt() => 정수만 변경 가능.
+
+            // 날짜 new Date() : 날짜 객체
+            let printValue = `<li>${userId.value}</li>`;
+            printValue += `<li>${userPw.value}</li>`;
+            printValue += `<li>${new Date (birth.value)}</li>`;
+            printValue += `<li>${Number(pin.value)} / ${typeof Number(pin.value)}</li>`;
+            
+            document.getElementById('ol').innerHTML = printValue;
+        }
+        function clickEventInput(){
+            // 버튼을 클릭하면 info 객체에 값을 추가
+            console.log(userId);
+            console.log(userPw);
+            console.log(birth);
+            console.log(pin);
+            info.innerText= `id : ${userId} / pw :  ${userPw} / birth : ${birth} / pin : ${pin}`;
+            // 전송하고 난 후 input 값 초기화
+            document.getElementById('userId').value = null;
+            document.getElementById('userPw').value = null;
+            document.getElementById('birth').value = null;
+            document.getElementById('pin').value = null;
+        }
+    </script>
+</body>
+</html>

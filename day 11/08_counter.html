@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cart{
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            width: 100px;
+            border: 1px solid black;
+            border-radius: 20px;
+        }
+        .cart>h1{
+            margin: 0;
+            font-size: 20px;
+
+        }
+        button{
+            font-size: 20px;
+            width: 30px;
+            height: 30px;
+            border: none;
+            border-radius: 20px;
+        }
+        #number{
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 
+        button 2개 준비 + / -
+        +   => 값이 1씩 증가
+        -   => 값이 1씩 감소 (값이 0이면 더이상 감소 X)
+    -->
+        <div class="cart">
+            <button type="button" id="incre">+</button>
+            <h1 id="number">0</h1>
+            <button type="button" class="-btn" id="decre">-</button>
+        </div>
+
+        <script>
+            let num = 0;
+            let h1Num = document.getElementById('number');
+
+            document.getElementById('incre').addEventListener('click', () => {
+                num++;
+                h1Num.innerText = num;
+            });
+
+            document.getElementById('decre').addEventListener('click', () => {
+                if(num > 0){
+                    num--;
+                    h1Num.innerText = num;
+                }else{
+                    alert('숫자가 0입니다.');
+                }
+            });
+
+
+        </script>
+
+</body>
+</html>

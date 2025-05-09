@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hello World</h1>
+    <h3 id="h3"></h3>
+
+    <script>
+        // alert : 안내문을 띄워주는 창 => 확인 버튼.
+        // confirm : 확인(true) / 취소(false)
+        // prompt : 값을 입력 받을 수 있음. => alert + input
+        alert("hello");
+        let con = confirm("확인");
+        if(con == false){
+            console.log('취소를 눌렀습니다.');
+        }else{
+            console.log('확인을 눌렀습니다.');
+        }
+        let pro = prompt("이름력해주세요.");
+        document.getElementById('h3').innerText = pro;
+    </script>을 입
+</body>
+</html>

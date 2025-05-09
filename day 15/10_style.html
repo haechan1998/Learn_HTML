@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>element css 적용</h1>
+
+    <ul>
+        <li>
+            css 관련 속성은 style. 으로 접근
+        </li>
+        <li>
+            font-size 처럼 -를 포함하는 속성은 -를 지우고 camelCase 로 변경
+            fontSize
+        </li>
+        <li>
+            element.setAttribute(name, value)
+        </li>
+    </ul>
+
+    <h1 id="h1">색상변경</h1>
+    <input type="color" id="colorValue">
+    <button type="button" id="changeBtn">변경</button>
+
+    <script>
+
+        const input = document.getElementById('colorValue');
+        const h1 = document.getElementById('h1');
+
+        document.getElementById('changeBtn').addEventListener('click', () => {
+            h1.style.color = input.value;
+            h1.style.fontSize = '40px'
+        });
+
+    </script>
+
+</body>
+</html>

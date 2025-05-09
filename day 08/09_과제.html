@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>성적확인</legend>
+                이름: <input type="text" id="name"> <br>
+                국어: <input type="text" id="kor"> <br>
+                영어: <input type="text" id="eng"> <br>
+                수학: <input type="text" id="math"> <br>
+                <button type="button" id="sum" onclick="sumAndAvg()">성적계산</button>
+        </fieldset>
+    </form>
+    <ul id="ul"></ul>
+
+    <script>
+        function sumAndAvg(){
+            let name = document.getElementById('name').value;
+            let kor = Number(document.getElementById('kor').value);
+            let eng = Number(document.getElementById('eng').value);
+            let math = Number(document.getElementById('math').value);
+            let sum = kor+eng+math;
+            let avg = sum / 3;
+            if(kor > 100 || eng > 100 || math > 100){
+                let printValue = `<li> 값이 잘못되었습니다. </li>`;
+                document.getElementById('ul').innerHTML = printValue;
+            }else{
+                let printValue = `<li> name : ${name}</li>`;
+                printValue += `<li> kor : ${kor}</li>`;
+                printValue += `<li> eng : ${eng}</li>`;
+                printValue += `<li> math : ${math}</li>`;
+                printValue += `<li> sum : ${(sum)}</li>`;
+                // 반올림 방법 Math.round() : 반올림 후 정수로 리턴
+                printValue += `<li> avg ${(avg.toFixed(2))}</li>`;
+                
+                document.getElementById('ul').innerHTML = printValue;
+            }
+        }
+    </script>
+
+</body>
+</html>

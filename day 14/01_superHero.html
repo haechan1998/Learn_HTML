@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        body>header>h1{
+            font-size: 60px;
+            font-weight: 600;
+        }
+        body>section{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .heroName{
+            font-size: 30px;
+            display: block;
+            font-weight: 600;
+        }
+        section>div>ul{
+            margin-top: 20px;
+        }
+        .charactor1{
+            background-color: rgba(98, 153, 255, 0.342);            
+        }
+        .charactor2{
+            background-color: rgba(221, 138, 79, 0.459);
+        }
+        .charactor3{
+            background-color: rgba(177, 119, 192, 0.555);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="h1"></h1>
+        <div>
+            <h3 id="h3"></h3>
+        </div>
+    </header>
+    <section>
+        <div class="charactor1">
+            <div class="div1" id="div1">
+            </div>
+            <ul id="spList1"></ul>
+        </div>
+        <div class="charactor2">
+            <div class="div2" id="div2">
+            </div>
+            <ul id="spList2"></ul>
+        </div>
+        <div class="charactor3">
+            <div class="div3" id="div3">
+            </div>
+            <ul id="spList3"></ul>
+        </div>
+    </section>
+
+    <script>
+        // https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json
+
+        fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json')
+        .then(Response => Response.json())
+        .then(json => superHero(json))
+        .catch(err => console.log(err))
+
+        //superHero(json)
+        function superHero(objHero) {
+            const h1 = document.getElementById('h1');
+            const h3 = document.getElementById('h3');
+            const div1 = document.getElementById('div1');
+            const div2 = document.getElementById('div2');
+            const div3 = document.getElementById('div3');
+            const spList1 = document.getElementById('spList1');
+            const spList2 = document.getElementById('spList2');
+            const spList3 = document.getElementById('spList3');
+
+            h1.innerText = `${objHero.squadName}`;
+            h3.innerText = `${Object.keys(objHero)[1]}:${objHero.homeTown} // ${Object.keys(objHero)[2]}:${objHero.formed}`;
+            
+            div1.innerHTML = `<span class="heroName">${objHero.members[0].name}</span> <br>`;
+            div1.innerHTML += `Age : ${objHero.members[0].age} <br>`;
+            div1.innerHTML += `SuperPower :`;
+
+            div2.innerHTML = `<span class="heroName">${objHero.members[1].name}</span> <br>`;
+            div2.innerHTML += `Age : ${objHero.members[1].age} <br>`;
+            div2.innerHTML += `SuperPower :`;
+
+            div3.innerHTML = `<span class="heroName">${objHero.members[2].name}</span> <br>`;
+            div3.innerHTML += `Age : ${objHero.members[2].age} <br>`;
+            div3.innerHTML += `SuperPower :`;
+            
+            for(const key of objHero.members[0].powers){
+                spList1.innerHTML += `<li>${key}</li>`;
+            }
+             
+            for(const key of objHero.members[1].powers){
+                spList2.innerHTML += `<li>${key}</li>`;
+            }
+            
+            for(const key of objHero.members[2].powers){
+                spList3.innerHTML += `<li>${key}</li>`;
+            }
+
+           
+        }
+
+
+    </script>
+
+</body>
+</html>

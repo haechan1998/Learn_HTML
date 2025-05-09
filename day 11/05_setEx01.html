@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        set을 생성하고, 1~10까지 랜덤수를 5개 채워서 출력 (중복X)
+    </h1>
+
+    <script>
+
+        const treeSet = new Set();
+        while(treeSet.size < 5){
+            let random = Math.floor(Math.random()*10+1);
+            treeSet.add(random);
+        };
+        console.log(treeSet);
+
+        treeSet.forEach(v => console.log(v));
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1~99 까지의 숫자 중 하나를 랜덤으로 선택하여 해당 숫자를 맞추는 게임 -->
+    <h1>
+        <button type="button" id="random">랜덤 숫자 생성 버튼</button>
+        <button type="button" id="re">다시시도</button>
+    </h1>
+    <h3 id="printMSG"></h3>
+    <h1>
+        <input type="number" id="myNum" min="1" max="99">
+        <button type="button" id="submitNum">제출</button>
+        <h1 id="h1"></h1>
+    </h1>
+    
+    <script>
+        // 시도횟수 / 내숫자 / up/down
+        
+
+        // 랜덤 수 생성 (1~99)
+        let comNum = 0;
+        let str = '';
+        let count = 0;
+        const printMSG = document.getElementById('printMSG');
+        const h1 = document.getElementById('h1');
+        const playerNum = document.getElementById('myNum');
+
+        function random(){
+            return Math.floor(Math.random()*99+1);
+        };
+
+        document.getElementById('random').addEventListener('click', ()=>{
+            comNum = random();
+            printMSG.innerText = '컴퓨터가 랜덤수를(1~99) 생성했습니다.';
+        });
+
+        document.getElementById('submitNum').addEventListener('click', ()=>{
+            let pNum = Number(playerNum.value); // input type 이 number 이더라도 타입이 string이다.
+            count ++;
+            if(pNum > 100 || pNum < 0){
+                str += `다시 입력해주세요. 내숫자 : ${pNum} <br>`
+                count --;
+            }else if(comNum == 0){
+                str += `랜덤값이 정해지지 않았습니다.<br>`;
+                count--;
+            }else{
+                str = str.replace(/랜덤값이 정해지지 않았습니다.<br>/gm,'');
+                if(pNum == comNum){
+                    str += `<span>시도횟수 ${count}, 내숫자 : ${pNum} 정답입니다!</span>`
+                    playerNum.value = null;
+                }else{
+                    if(pNum > comNum){
+                        str += `<span>시도횟수 ${count}, 내숫자 : ${pNum} DOWN!</span><br>`
+                        playerNum.value = null;
+                    }else{
+                        str += `<span>시도횟수 ${count}, 내숫자 : ${pNum} UP!</span><br>`
+                        playerNum.value = null;
+                    }
+                }
+            }
+            h1.innerHTML = str;
+        });
+        
+        document.getElementById('re').addEventListener('click', () => {
+
+            comNum = 0, str = '', count = 0;
+            printMSG.innerText = null;
+            h1.innerHTML = null;
+            playerNum.value = null;
+
+        });
+        
+        
+        
+
+    </script>
+
+
+
+    
+</body>
+</html>

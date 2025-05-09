@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    form{
+        border: 2px solid grey;
+        width: 350px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        flex: 1 1 40%;
+        text-align: center;
+        line-height: 20px;
+        color: slateblue;
+        font-weight: 700;
+        padding: 10px;
+    }
+    div{
+        width: 80px;
+        height: 30px;
+        margin: 10px 0;
+    }
+    .play{
+        width: 100%;
+        font-size: 30px;
+        line-height: 10px;
+    }
+    input{
+        width: 200px;
+        height: 30px;
+    }
+    table{
+        margin-top: 20px;
+        display: none;
+        text-align: center;
+        font-size: 16px;
+    }
+    table th, td{
+        width: 200px;
+    }
+    ul{
+        display: inline-block;
+        padding-left: 0px;
+        text-align: center;
+    }
+    li{
+        list-style: none;
+    }
+    button{
+        border-radius: 20px;
+        border: none;
+        background-color: darkgray;
+        color: white;
+        padding: 10px 10px;
+    }
+    button:hover{
+        background-color: rgb(102, 102, 102);
+        cursor: pointer;
+    }
+    
+</style>
+<body>
+    <h1>구조에 따라 자바스크립트 객체를 만들어 보자</h1>
+    <form action="">
+        <div>가수명 : </div><input type="text" id="name">
+        <div>나이 : </div><input type="text" id="age">
+        <div class="play"> <플레이리스트> </div>
+        <div>리스트1 : </div><input type="text" id="list1">
+        <div>리스트2 : </div><input type="text" id="list2">
+        <div>리스트3 : </div><input type="text" id="list3">
+        <button type="button" id="btn">객체로 전송</button>
+    </form>
+        <!-- 테이블로도 만들기 -->
+        <table border="1" id="table"></table>
+    <script>
+
+        const musician = {
+            name : '',
+            age : '',
+            playList : {
+                list1 : '',
+                list2 : '',
+                list3 : ''
+            }
+        }
+        document.getElementById('btn').addEventListener('click', ()=>{
+            musician.name = document.getElementById('name').value;
+            musician.age = document.getElementById('age').value;
+            musician.playList.list1 = document.getElementById('list1').value;
+            musician.playList.list2 = document.getElementById('list2').value;
+            musician.playList.list3 = document.getElementById('list3').value;
+
+            console.log(musician.name);
+            console.log(musician.age);
+            console.log(musician.playList);
+            let table =
+            `
+            <tr>
+                <th>가수명</th>
+                <td>${musician.name}</td>
+            </tr>
+            <tr>
+                <th>나이</th>
+                <td>${musician.age}</td>
+            </tr>
+            <tr>
+                <th>플레이리스트</th>
+                <td>
+                    <ul>
+                        <li>${musician.playList.list1}</li>
+                        <li>${musician.playList.list2}</li>
+                        <li>${musician.playList.list3}</li>
+                    </ul>
+                </td>
+            </tr>    
+            `;
+            document.getElementById('table').style.display = "block";
+            document.getElementById('table').style.width = "400px";
+            document.getElementById('table').innerHTML = table;
+
+        });
+
+    </script>
+
+</body>
+</html>

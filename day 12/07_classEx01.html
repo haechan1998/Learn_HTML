@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // class User 생성
+        // 생성자로 name, birth를 받아서 멤버변수로 저장
+        // get age() : 나이를 리턴 오늘 날짜년도 - 생년월일 년도 // get
+        // status() 성인인지 미성년자인지 리턴 (콘솔로 리턴) // method
+
+        let today = new Date();
+        let birth = new Date('2001-03-25');
+        console.log(today);
+        console.log(birth);
+        console.log(today.getFullYear()-birth.getFullYear());
+
+
+        class User{
+            constructor(name, birth){
+                this.name = name;
+                this.birth = new Date(birth);
+            }
+            get age(){
+                return `${today.getFullYear() - this.birth.getFullYear()}`;
+            }
+            status(age){
+                if(age >= 20){
+                    return console.log('성인');
+                }else{
+                    return console.log('미성년자');
+                }
+            }
+        };
+
+        let user = new User('홍길동', '2006-04-31');
+        console.log(user);
+        user.age;
+        user.status(user.age);
+        let user2 = new User('박철수', '1997-05-20');
+        console.log(user2);
+        user2.age;
+        user2.status(user2.age);
+
+
+
+
+    </script>
+</body>
+</html>

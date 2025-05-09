@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" id="startBtn">게임시작</button>
+    <h1 id="h1"></h1>
+    숫자입력 : <input type="text" id="inputNumber">
+    <button type="button" id="submitBtn">제출</button>
+    <ul id="printGame"></ul>
+    
+    <script>
+        const com = [];
+        const playerArr = [];
+        let stk = 0;
+        let ball = 0;
+
+        const playerNumber = document.getElementById('inputNumber');
+        const h1 = document.getElementById('h1');
+        const printGame = document.getElementById('printGame');
+
+        // 제출시 숫자 확인하고 printGame 및 h1에 문구 출력
+        document.getElementById('submitBtn').addEventListener('click', () => {
+            if(playerArr.size != 3){
+                playerArr.length = 0;
+            }
+            if(com.length == 0){
+                h1.innerText = `게임을 시작하지 않았습니다.`;
+                return;
+            }
+            isDufNum(playerArr);
+            console.log(playerArr);
+            game(playerArr, com);
+        });
+
+        // 게임 로직
+        function game(playerArr, comArr){
+            stk = 0;
+            ball = 0;
+
+            for(let i=0; i<playerArr.length; i++){
+                for(let j=0; j<comArr.length; j++){
+                    if(playerArr[i] == com[j] && i == j){
+                        stk++;
+                    }else if(playerArr[i] == com[j] && i != j){
+                        ball++;
+                    }
+                }
+            }
+        }
+
+        // 중복검사
+        function isDufNum(playerArr) {
+            let pSet = new Set(playerNumber.value.split(""));
+            let str = '';
+
+            console.log(pSet);
+            // for(let i=0; i<3; i++){
+            //     pSet.add(Number(playerNumber.value.charAt(i)));
+            // }
+            // 여기서 배열 길이 확인해서 alert 문구 추가.
+            pSet.forEach(v => playerArr.push(v));
+            if(playerArr.length != 3){
+                alert(`숫자를 다시 입력해주세요.`)
+                playerArr.length = 0;
+                playerNumber.value = '';
+            }else{
+
+            if(stk == 3){
+                str = `<li>성공!</li>`;
+            }else{
+                str = `<li>${playerArr} ==> ${stk}Strike, ${ball}Ball</li>`;
+            }
+
+            printGame.innerHTML += str;
+            }
+
+        }
+
+        // 게임시작 버튼을 누르면 com 에 랜덤수 저장
+        document.getElementById('startBtn').addEventListener('click', () =>{
+            playerArr.splice(0,3);
+            let str = `컴퓨터가 숫자를 결정하였습니다.`;
+            random(com)
+            h1.innerText = str;
+            console.log(com);
+        });
+
+        // 컴퓨터의 랜덤수를 저장하는 함수
+        function random(com){
+            if(com.length == 3){
+                com.splice(0,3);
+            };
+
+            let comSet = new Set();
+
+            while(comSet.size < 3){
+                comSet.add(Math.floor(Math.random()*10));
+            };
+
+            comSet.forEach(v => com.push(v));
+        };
+
+        // function ck() {
+        //     let str = '';
+        //     let num = 5;
+        //     num = Number(str);
+        //     console.log(num);
+        // }
+        // // '' 은 Number 로 형 변환시 0으로 반환된다.
+        // ck();
+
+    </script>
+</body>
+</html>

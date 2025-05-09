@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DriveAgain</title>
+    <link rel="stylesheet" href="../css/defaultStyle.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+        section{
+            text-align: center;
+        }
+        section>.inner>h1{
+            padding: 50px 0;
+            font-size: 50px;
+        }
+        section>.inner>.select_menu{
+            display: flex;
+            padding-top: 50px 0;
+            padding-bottom: 20px;
+        }
+        section>.inner>.select_menu button{
+            border: none;
+            margin-right: 20px;
+            background-color: white;
+
+        }
+        section>.inner>.select_menu button:hover{
+            cursor: pointer;
+        }
+        section>.inner>.select_menu button p{
+            font-size: 20px;
+        }
+        .content{
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 100px;
+        }
+        .imgBox{
+            width: 380px;
+            height: 475px;
+        }
+        .container{
+            width: 380px;
+        }
+        .box1{
+            background-image: url(../image/기획전5.jpg);
+        }
+        .box2{
+            background-image: url(../image/기획전2.jpg);
+        }
+        .box3{
+            background-image: url(../image/기획전3.jpg);
+        }
+        .box4{
+            background-image: url(../image/기획전4.jpg);
+        }
+        .box5{
+            background-image: url(../image/기획전1.jpg);
+            background-size: cover;
+        }
+        .box6{
+            background-image: url(../image/기획전6.png);
+        }
+        .underline{
+            text-decoration-line: underline;
+            text-underline-offset: 7px;
+            text-decoration-thickness: 2px;
+            font-weight: 600;
+        }
+        .disNone{
+            display: none;
+        }
+        p{
+            text-align: left;
+            padding: 10px 0;
+        }
+        .content>a p:nth-child(2){
+            color: #00bcd4;
+            font-size: 14px;
+        }
+        .content>a p:nth-child(3){
+            font-size: 22px;
+            font-weight: 600;
+            line-height: 30px;
+            height: 60px;
+        }
+        .content>a p:nth-child(4){
+            color: rgba(112, 112, 112, 0.692);
+            font-size: 14px;
+            
+        }
+        </style>
+</head>
+<body>
+    <header class="header"  href="#top">
+        <div class="grey">
+            <div class="inner">
+                <!-- 로그인 / 회원가입 -->
+                <ul class="topHeader logoutDiv" id="topHeader">
+                    <li>
+                        <a href="../html/login.html" class="loginbtn before">로그인</a>
+                    </li>
+                    <li>
+                        <a href="../html/sign.html" class="joinMembership">회원가입</a>
+                    </li>
+                </ul>
+                <ul class="topHeader loginDiv" id="topHeader">
+                    <li>
+                        <button id="logoutBtn">로그아웃</button>
+                    </li>
+                    <li>
+                        <a href="../html/myPage.html" class="joinMembership">마이페이지</a>
+                    </li>
+                </ul>
+                <div class="bottomHeader">
+                    <div class="logo">
+                        <a href="../html/mainPage.html"><img src="../image/mainLogo3.png" alt=""
+                                class="main_Logo" /></a>
+                    </div>
+                    <nav>
+                        <ul class="navBar">
+                            <li class="bold"><a href="../html/sell.html">내차팔기</a></li>
+                            <li class="bold"><a href="../html/searchBoard.html">내차사기</a></li>
+                            <li><a href="../html/driveMain.html">드라이브코스</a></li>
+                            <li><a href="../html/eventPage.html">이벤트</a></li>
+                            <li><a href="../html/exhibitionPage.html">기획전</a></li>
+                            <li><a href="../html/qeustion.html">공지사항</a></li>
+                        </ul>
+                    </nav>
+                    <ul class="myImpormation">
+                        <li><a href="" id="myPage">마이페이지</a></li>
+                        <li>
+                            <button type="button" class="menuBtn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-list" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                                </svg>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="toggleSection" class="toggleRe">
+                <!-- 햄버거 메뉴바를 클릭하면 나올 창. -->
+                <div class="inner">
+                    <div class="toggleMene">
+                        <div class="menu menu1">
+                            <p>내차사기 / 내차팔기</p>
+                            <ul>
+                                <!-- 혜원씨자리 -->
+                                <li><a href="../html/searchBoard.html">차량검색</a></li>
+                                <li><a href="../html/sell.html">내차팔기</a></li>
+                                <li><a href="../html/priceChart.html">차량시세</a></li>
+                            </ul>
+                        </div>
+                        <div class="menu menu2">
+                            <p>드라이브코스</p>
+                            <ul>
+                                <li><a href="../html/drive1.html">설악산 드라이브 길</a></li>
+                                <li>
+                                    <a href="../html/drive2.html">높은고개 드라이브 길</a>
+                                </li>
+                                <li><a href="../html/drive3.html">바다 드라이브 길</a></li>
+                            </ul>
+                        </div>
+                        <div class="menu menu3">
+                            <p>이벤트 / 기획전</p>
+                            <ul>
+                                <li><a href="../html/eventPage.html">이벤트</a></li>
+                                <li><a href="../html/exhibitionPage.html">기획전</a></li>
+                            </ul>
+                        </div>
+                        <div class="menu menu4">
+                            <p>공지사항</p>
+                            <ul>
+                                <!-- 주선씨자리 -->
+                                <li><a href="../html/qeustion.html">자주묻는질문</a></li>
+                            </ul>
+                        </div>
+                        <div class="menu menu5">
+                            <p>티저영상</p>
+                            <ul>
+                                <li><a href="../html/screen.html">티저영상</a></li>
+                            </ul>
+                        </div>
+                        <button type="button" class="menuBtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-arrow-bar-up" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5m-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <script src="../js/header.js"></script>
+    <!-- 기획전 나올 페이지 -->
+    <section>
+        <div class="inner">
+            <h1>기획전</h1>
+            <div class="select_menu">
+                <button id="btn1"><p id="menu1" >진행중 기획전</p></button>
+                <button id="btn2"><p id="menu2" >종료 기획전</p></button>
+            </div>
+            <div class="content" id="div1">
+                <a href="https://certified.hyundai.com/p/display/getSpdpInfo.do?catNo=80000010231">
+                    <div class="container">
+                        <div class="imgBox box1"></div>
+                        <p>기획전</p>
+                        <p>오후 5시, 새로운 인증 중고차를 만나는 시간</p>
+                        <p>2025.05.01 - 2025.12.31</p>
+                    </div>
+                </a>
+                <a href="https://certified.hyundai.com/p/display/getSpdpInfo.do?catNo=80000010227">
+                    <div class="container">
+                        <div class="imgBox box2"></div>
+                        <p>기획전</p>
+                        <p>1.2% 캐시백, 2~3개월 무이자 혜택받고 구매하기</p>
+                        <p>2025.05.01 - 2025.05.31</p>
+                    </div>
+                </a>
+                <a href="https://certified.hyundai.com/p/display/getSpdpInfo.do?catNo=80000010341">
+                    <div class="container">
+                        <div class="imgBox box3"></div>
+                        <p>기획전</p>
+                        <p>D.A인증 중고차 클리어런스</p>
+                        <p>2025.05.01 - 2025.05.31</p>
+                    </div>
+                </a>
+            </div>
+            <div class="content disNone" id="div2">
+                <a href="https://certified.hyundai.com/p/display/getSpdpInfo.do?catNo=80000010349">
+                    <div class="container">
+                        <div class="imgBox box4"></div>
+                        <p>기획전</p>
+                        <p>GV80 할인 차량 모음</p>
+                        <p>2024.08.29 - 2024.09.30</p>
+                    </div>
+                </a>
+                <a href="https://certified.hyundai.com/p/display/getSpdpInfo.do?catNo=80000010286">
+                    <div class="container">
+                        <div class="imgBox box5"></div>
+                        <p>기획전</p>
+                        <p>인증중고차 센터 방문고객 커피 쿠폰 증정 이벤트</p>
+                        <p>2024.06.20 - 2024.11.30</p>
+                    </div>
+                </a>
+                <a href="https://certified.hyundai.com/p/display/getSpdpInfo.do?catNo=80000010301">
+                    <div class="container">
+                        <div class="imgBox box6"></div>
+                        <p>기획전</p>
+                        <p>안전한 자동차 금융, 아는 것으로부터</p>
+                        <p>2024.03.11 - 2025.01.30</p>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        const menu1 = document.getElementById('menu1');
+        const menu2 = document.getElementById('menu2');
+        const div1 = document.getElementById('div1');
+        const div2 = document.getElementById('div2');
+
+        document.getElementById('btn1').addEventListener('click', () => {
+            menu1.classList.add('underline');
+            menu2.classList.remove('underline');
+            div2.classList.add('disNone');
+            div1.classList.remove('disNone');
+
+        });
+        document.getElementById('btn2').addEventListener('click', () => {
+            menu2.classList.add('underline');
+            menu1.classList.remove('underline');
+            div1.classList.add('disNone');
+            div2.classList.remove('disNone');
+        });
+
+    </script>
+
+<footer>
+    <a href="" id="top">
+        <div class="topBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                <path
+                    d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+            </svg>
+            TOP
+        </div>
+    </a>
+    <div class="inner">
+        <div class="logo">
+            <a href="../html/mainPage.html"><img src="../image/mainLogo3.png" alt="" class="main_Logo" /></a>
+        </div>
+        <!--  -->
+        <ul class="footer_impormation">
+            <li id="comName">상호명:Drive Again</li>
+            <li>사업자등록번호:101-10-10001</li>
+            <li>이메일:email@gmail.com</li>
+            <li>대표번호:000-0000-0000</li>
+            <li>COPYRIGHT © D.A MOTOR COMPANY. ALL RIGHTS RESERVED.</li>
+        </ul>
+        <ul class="footer_service">
+            <li><a href="">서비스 이용약관</a></li>
+            <li><a href="https://privacy.hyundai.com/overview/full-policy">고객정보 처리방침</a></li>
+            <li><a href="">한국어</a></li>
+            <li><a href="">English</a></li>
+        </ul>
+    </div>
+</footer>
+</body>
+</html>

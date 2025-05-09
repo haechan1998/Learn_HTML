@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <style>
+        /* 
+            다운로드 받은 폰트를 가져올경우
+            @font-face {
+                font-family : 폰트명;
+                src: url(폰트경로);
+            }
+        */
+        body{
+            background-color: #74f6f6;
+            text-align: center;
+            font-family: "Jua", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            
+        }
+        .menu{
+            width: 350px;
+            margin: 40px auto;
+            border: 1px solid #74f6f6;
+            background-color: white;
+            border-radius: 20px;
+        }
+        .blue{
+            color: blue;
+        }
+        .bibimbab{
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 20px 20px 0 0;
+            height: 230px;
+            background-image: url(../image/비빔밥.jpg);
+        }
+        .sam{
+            background-repeat: no-repeat;
+            background-size: 80%;
+            background-position: center;
+            border-radius: 20px 20px 0 0;
+            height: 230px;
+            background-image: url(../image/삼계탕.jpg);
+        }
+        .soondae{
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 20px 20px 0 0;
+            height: 230px;
+            background-image: url(../image/오징어순대.jpg);
+        }
+        .jang{
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 20px 20px 0 0;
+            height: 230px;
+            background-image: url(../image/장어덮밥.jpg);
+        }
+        .jja{
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 20px 20px 0 0;
+            height: 230px;
+            background-image: url(../image/짜장면.jpg);
+        }
+        .header>h1{
+            font-size: 80px;
+        }
+        .header>h3{
+            font-size: 35px;
+        }
+        a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="contaner">
+        <div class="header">
+            <h1>배달의 민족</h1>
+            <h3>넌 배달 할 때가 제일 멋있어</h3>
+        </div>
+        <!-- 하나의 메뉴 박스 -->
+        <!-- 5개 생성 -->
+        <div class="menu">
+            <div class="bibimbab"></div>
+            <div>
+                <h2>맛있는 비빔밥</h2>
+                <p>주머니가 가벼운 당신의 마음까지 생각한 착한 가격!</p>
+                <p><del>25,000원</del> 15,000원</p>
+                <a href="">
+                <p class="blue">바로결제</p>
+                 </a>
+            </div>
+        </div>
+        <div class="menu">
+            <div class="sam"></div>
+            <div>
+                <h2>맛있는 삼계탕</h2>
+                <p>주머니가 가벼운 당신의 마음까지 생각한 착한 가격!</p>
+                <p><del>20,000원</del> 10,000원</p>
+                <a href="">
+                    <p class="blue">바로결제</p>
+                     </a>
+            </div>
+        </div>
+        <div class="menu">
+            <div class="soondae"></div>
+            <div>
+                <h2>맛있는 오징어순대</h2>
+                <p>주머니가 가벼운 당신의 마음까지 생각한 착한 가격!</p>
+                <p><del>25,000원</del> 15,000원</p>
+                <a href="">
+                    <p class="blue">바로결제</p>
+                     </a>
+            </div>
+        </div>
+        <div class="menu">
+            <div class="jang"></div>
+            <div>
+                <h2>맛있는 장어덮밥</h2>
+                <p>주머니가 가벼운 당신의 마음까지 생각한 착한 가격!</p>
+                <p><del>25,000원</del> 15,000원</p>
+                <a href="">
+                    <p class="blue">바로결제</p>
+                     </a>
+            </div>
+        </div>
+        <div class="menu">
+            <div class="jja"></div>
+            <div>
+                <h2>맛있는 짜장면</h2>
+                <p>주머니가 가벼운 당신의 마음까지 생각한 착한 가격!</p>
+                <p><del>25,000원</del> 15,000원</p>
+                <a href="">
+                    <p class="blue">바로결제</p>
+                     </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .naverSearch{
+            border: 1px solid #e538e2;
+            border-radius: 50px;
+            width: 800px;
+            height: 60px;
+            margin: 20px auto;
+        }
+        /*.nIcon{
+            width: 80px;
+            height: 40px;
+            float: left;
+            text-align: center;
+            line-height: 40px;
+            font-size: 35px;
+            font-weight: 900;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #03c75a;
+            margin: 10px;
+            
+        }*/
+        .nIcon{
+            width: 80px;
+            height: 40px;
+            background-image: url(../image/naver.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            float: left;
+            margin: 10px;
+        }
+        .searchBar>input{
+            width: 500px;
+            height: 40px;
+            margin: 10px;
+            outline: none;
+            border: none;
+            font-size: 24px;
+            font-weight: 500;
+            box-sizing: border-box;
+            float: left;
+        }
+        .searchBar>input::placeholder{
+            font-size: 22px;
+        }
+        .icon{
+            width: 150px;
+            height: 40px;
+            margin: 10px;
+            float: left;
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+        .bi-keyboard{
+            color: rgb(128, 128, 128,0.8);
+            margin-right: 30px;
+        }
+        .biret-down-fill{
+            margin-right: 20px;
+            color: #e538e2;
+        }
+        .bi-search{
+            color: #e538e2;
+        }
+        .btn{
+            border: none;
+        }
+        .bi-keyboard:hover{
+            color: grey;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <div class="naverSearch">
+            <div class="inner nIcon"></div>
+            <div class="inner searchBar">
+                <input type="text" name="search" placeholder="검색어를 입력해 주세요.">
+            </div>
+            <div class="inner icon">
+                <!-- 키보드 -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="20" fill="currentColor" class="bi bi-keyboard" viewBox="0 0 16 16">
+                    <path d="M14 5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zM2 4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/>
+                    <path d="M13 10.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zm0-2a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zm-5 0A.25.25 0 0 1 8.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 8 8.75zm2 0a.25.25 0 0 1 .25-.25h1.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-1.5a.25.25 0 0 1-.25-.25zm1 2a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zm-5-2A.25.25 0 0 1 6.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 6 8.75zm-2 0A.25.25 0 0 1 4.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 4 8.75zm-2 0A.25.25 0 0 1 2.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 2 8.75zm11-2a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zm-2 0a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zm-2 0A.25.25 0 0 1 9.25 6h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 9 6.75zm-2 0A.25.25 0 0 1 7.25 6h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 7 6.75zm-2 0A.25.25 0 0 1 5.25 6h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 5 6.75zm-3 0A.25.25 0 0 1 2.25 6h1.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-1.5A.25.25 0 0 1 2 6.75zm0 4a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zm2 0a.25.25 0 0 1 .25-.25h5.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-5.5a.25.25 0 0 1-.25-.25z"/>
+                  </svg>
+                <!-- 삼각형 -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi biret-down-fill" viewBox="0 0 16 16">
+                    <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.79-ca6 5.48a1 1 0 0 1-1.506 0z"/>
+                  </svg>
+                <button type="submit" class="btn">
+                    <!-- 돋보기 -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="number">
+    <button type="button" id="printBtn">print</button>
+    <h3 id="printResult"></h3>
+
+    <script>
+        // input의 값이 숫자만 들어 올 수 있게 try~catch로 체크
+        // 숫자가 아니면 throw 로 에러 처리.
+        // 입력된 숫자값을 printResult 에 출력
+        
+        document.getElementById('printBtn').addEventListener('click', () => {
+            let number = document.getElementById('number').value;
+            const result = document.getElementById('printResult');
+            try{
+                if(isNaN(number)){
+                    result.innerText = ``;
+                    throw new Error('숫자가 아닙니다.');
+                    //throw 가 걸리면 됫처리를 하지 않음.
+                }else{
+                    result.innerText = `${number * 2}`;
+                }    
+            }catch(error){
+                console.log(error.name);
+                console.log(error);
+
+            }finally{
+                console.log(typeof(number));
+            };
+        });
+
+    </script>
+
+
+
+</body>
+</html>

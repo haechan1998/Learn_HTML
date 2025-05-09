@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    fieldset{
+        color: rgb(126, 98, 62);
+        font-size: 20px;
+        font-weight: 600;
+        width: 300px;
+        text-align: center;
+        line-height: 30px;
+        border: 3px solid;
+        border-radius: 20px;
+        border-color: cadetblue;
+    }
+    button{
+        background-color: rgb(87, 87, 80);
+        margin-top: 10px;
+        border: none;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 10px;
+    }
+    input{
+        border-radius: 10px;
+        border-color: cornflowerblue;
+        outline: none;
+    }
+</style>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>성적확인</legend>
+                이름: <input type="text" id="name"> <br>
+                국어: <input type="text" id="kor"> <br>
+                영어: <input type="text" id="eng"> <br>
+                수학: <input type="text" id="math"> <br>
+                <button type="button" id="sum" onclick="sumAndAvg()">성적계산</button>
+        </fieldset>
+    </form>
+    <ul id="ul"></ul>
+
+    <script>
+
+        // 이름 합계 평균 합격여부 (평균이 60 이상이면 pass / fail)
+        // 입력한 성적의 값이 0~100 사이의 값이 아니라면 alert 창 띄워 안내
+
+        function sumAndAvg(){
+            let name = document.getElementById('name').value;
+            let kor = Number(document.getElementById('kor').value);
+            let eng = Number(document.getElementById('eng').value);
+            let math = Number(document.getElementById('math').value);
+            let sum = kor+eng+math;
+            let avg = sum / 3;
+            if((kor > 100|| kor < 0) || (eng > 100 || eng < 0) || (math > 100 || math < 0)){
+                alert("값이 잘못 되었습니다.");
+            }else{
+                let pass = (avg>=60) ? 'pass' : 'fail';
+                let printValue = `<li> name : ${name}</li>`;
+                printValue += `<li> kor : ${kor}</li>`;
+                printValue += `<li> eng : ${eng}</li>`;
+                printValue += `<li> math : ${math}</li>`;
+                printValue += `<li> sum : ${(sum)}</li>`;
+                printValue += `<li> 합격여부 : ${(pass)}</li>`;
+                // 반올림 방법 Math.round() : 반올림 후 정수로 리턴
+                printValue += `<li> avg ${(avg.toFixed(2))}</li>`;
+                
+                document.getElementById('ul').innerHTML = printValue;
+            }
+            document.getElementById('name').value = '';
+            document.getElementById('kor').value = '';
+            document.getElementById('eng').value = '';
+            document.getElementById('math').value = '';
+
+        }
+
+
+    </script>
+
+</body>
+</html>

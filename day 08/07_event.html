@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Event : html 객체에 줄 수  있는 전역객체로서 모든 태그 객체에 참조 시킬 수 있다.</h1>
+    <ul class="uls">
+        <li>
+            a tag / button tag 에 이벤트를 주로 참조시켜 사용
+            클릭에 대한 방응을 기대 할 수 있게 만드는 것이 일반적
+        </li>
+        <li>
+            a tag 는 href 이동속성을 막는 코드가 필요
+        </li>
+        <li>
+            객체에 이벤트를 부여하는 방법은 크게 3가지로 구분
+        </li>
+        <li>
+            각자 목적과 작동방식이 다름
+        </li>
+    </ul>
+    <ul id="ul" class="uls">
+        <li>
+            화면의 출력영역을 Document영역(객체) 라고 한다.
+        </li>
+        <li>
+            DOM 영역
+        </li>
+        <li>
+            tag = html element, 속성  = attribute, 일반텍스트 = textNode 라고 함. 
+        </li>
+        <li>
+            html로 출력하기 : innerHTML 라는 property 를 사용
+        </li>
+        <li>
+            text 로 출력하기 : innerText 라는 property 를 사용
+        </li>
+        <li>
+            html element 를 가져올 때 : getElementById / getElementByclassName 
+        </li>
+        <li>
+            html element 를 가져올 때 : querySelector('selector') => # .
+        </li>
+        <hr>
+    </ul>
+        <!-- event 연결 할 버튼 생성 -->
+        <button type="button" onclick="eventFunction()">click</button>
+        <button type="button" onclick="eventFunction2('2번')">click2</button>
+        <button type="button" onclick="eventFunction3('3번')">click3</button>
+        <button type="button" id="btn">button</button>
+        <button type="button" id="test">test</button>
+        <h1 id="printResult"></h1>
+
+        <script>
+            // 방법1. 버튼에 onclick 이벤트를 달아주는 방법 => 하나의 이벤트만 가능
+            // 방법2. EventListener 를 다는 방법 => 여러개의 이벤트를 등록 할 수 있음
+            // 방법3. onclick 을 객체에 다는 방법
+
+            // tag 를 객체로 저장
+            const printResult = document.getElementById('printResult');
+            const uls = document.getElementsByClassName('uls');
+
+            console.log(printResult);
+            console.log(uls);
+
+            document.getElementById('btn').addEventListener('click',function(){
+                printResult.innerText = 'button click';
+            });
+
+            document.getElementById('test').onclick = function(){
+                printResult.innerText = 'test click';
+            }
+
+
+            function eventFunction(){
+                // 버튼을 클릭하면 printResult 영역에 '버을 클릭했습니다.' 글자를 출력
+                printResult.innerText = '버튼을 클릭했습니다.'
+            }
+
+            function eventFunction2(param1){
+                printResult.innerHTML = `<span style="color : red"> ${param1}버튼을 클릭했습니다.</span>`
+            }
+
+            // 3번 버튼을 클릭하면 printResult 영역에 파란색 바탕에 흰 글자를 출력
+            function eventFunction3(p1){
+                printResult.innerHTML = `<span style="background-color: blue; color: white;">${p1}버튼을 클릭했습니다.</span>`;
+            }
+        </script>
+
+
+</body>
+</html>

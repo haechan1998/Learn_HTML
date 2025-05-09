@@ -1,0 +1,106 @@
+
+body {
+    margin: 0;
+    
+  }
+  .inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  .section {
+    margin: 0;
+    padding: 0;
+  }
+
+  .section img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  .wrap_view {
+    background-color: rgb(225, 238, 222);
+    padding: 50px 0;
+  }
+
+  .slide_btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .view {
+    width: 120px;
+  }
+
+  .swiper_wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1000px;
+    max-width: 100%;
+  }
+
+  .swiper {
+    display: flex;
+    overflow: hidden;
+    width: 900px;
+    scroll-behavior: smooth;
+  }
+
+  .swiper > div {
+    min-width: 300px;
+    margin-right: 20px;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .swiper > div > img {
+    width: 100%;
+    border-radius: 20px;
+  }
+
+  .btn_prev, .btn_next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .btn_prev {
+    left: 0;
+  }
+
+  .btn_next {
+    right: 0;
+  }
+  .floating-btn {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    z-index: 1;
+    width: 70px;
+    height: 70px;
+    background: rgb(255, 255, 255);
+    border-radius: 50%;
+    box-shadow: 4px 8px 10px black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .floating-btn img {
+    width: 50px;
+    height: 50px;
+    box-sizing: border-box;
+  }
+
+  

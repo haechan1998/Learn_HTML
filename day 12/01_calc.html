@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container{
+            width: 300px;
+        }
+        .resultBox{
+            border-radius: 10px;
+            border: 1px solid gray;
+            background-color: gray;
+            line-height: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+        #result{
+            text-align: right;
+            margin: 0;
+        }
+        .area{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        button{
+            height: 30px;
+            border-radius: 30px;
+        }
+        .container>.area>.c{
+            grid-column: span 4;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="resultBox">
+            <h1 id="result"></h1>
+        </div>
+        <div class="area">
+            <button type="button" value="7">7</button>
+            <button type="button" value="8">8</button>
+            <button type="button" value="9">9</button>
+            <button type="button" value="+">+</button>
+            <button type="button" value="4">4</button>
+            <button type="button" value="5">5</button>
+            <button type="button" value="6">6</button>
+            <button type="button" value="-">-</button>
+            <button type="button" value="1">1</button>
+            <button type="button" value="2">2</button>
+            <button type="button" value="3">3</button>
+            <button type="button" value="*">*</button>
+            <button type="button" value=".">.</button>
+            <button type="button" value="0">0</button>
+            <button type="button" value="/">/</button>
+            <button type="button" value="=">=</button>
+            <button type="button" value="c" class="c">c</button>
+        </div>
+    </div>
+
+    <script>
+        // getElementsById
+        // getElementByClassName = querySelector
+        /*
+        document.getElementsByClassName('conataier')[0].addEventListener('click', (e) => {
+            console.log(e.target.value);
+        })
+        */
+        let printResult = '';
+        let resultNum = 0;
+        
+        document.querySelector('.container').addEventListener('click', (e) => {
+            let btn = e.target.value;
+            let result = document.getElementById('result');
+
+            
+            if(btn == undefined){
+                
+            }else if(isNaN(btn)){
+                result.innerText += ` ${btn} `;
+                
+                switch(btn){
+                    case '.':
+                        printResult += btn;
+                    break;
+                    case 'c':
+                        printResult = '';
+                        resultNum = 0;
+                        result.innerText = '';
+                    break;
+                    default:
+                    if(btn == '='){
+                        let lNum = calcSlice(printResult);
+                        result.innerText = lNum.toFixed(2);
+                        printResult = `${lNum}`;
+                        
+                        
+                    }else{
+                        printResult += ` ${btn} `;
+                    };
+                    break;
+                }
+                
+            }else{
+                result.innerText += btn;
+                printResult += btn;
+                console.log(printResult);
+            }
+            
+            function calc(f, o, l){
+                console.log(f, o, l);
+                let resultNum = 0;
+                switch(o){
+                    case '+': resultNum = f + l; break;
+                    case '-': resultNum = f - l; break;
+                    case '*': resultNum = f * l; break;
+                    case '/': resultNum = f / l; break;
+                }
+                return resultNum;
+            }
+
+            function calcSlice(printResult){
+                let num1 = Number(printResult.slice(0, printResult.indexOf(' ')));
+                let num2 = Number(printResult.slice(printResult.lastIndexOf(' ')+1));
+                let str = printResult.charAt(printResult.lastIndexOf(' ')-1);
+                return calc(num1, str, num2);
+            }
+            
+            
+            
+        });
+
+
+    </script>
+</body>
+</html>

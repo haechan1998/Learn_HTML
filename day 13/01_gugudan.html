@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .o{
+            color: green;
+        }
+        .x{
+            color: red;
+        }
+        .red{
+            color: red;
+        }
+        .green{
+            color: green;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <h1>
+        <button type="button" id="startBtn">문제출제</button>
+    </h1>
+
+    <ol id="q"></ol>
+    <h1>
+        <button type="button" id="compareBtn">정답확인</button>
+    </h1>
+    <h3 id="print"></h3>
+    
+    <script>
+
+        const quiz = document.getElementById('q');
+        const print = document.getElementById('print');
+        
+        let compareArr = [];
+
+        // 랜덤구구단 출제
+        document.getElementById('startBtn').addEventListener('click', () => {
+            let count = 0;
+            compareArr.splice(0,10);
+            quiz.innerHTML = ``;                      
+            print.innerText = ``;
+
+            
+            while(compareArr.length < 10){
+                let randomNum1 = Math.floor(Math.random()*9)+1;
+                let randomNum2 = Math.floor(Math.random()*9)+1;
+
+                quiz.innerHTML += `<li>${randomNum1} * ${randomNum2} <input type="text" id="answer${count}" class=""></li>`
+                compareArr.push(randomNum1 * randomNum2);
+                console.log(randomNum1, randomNum2);
+                count++;
+            };
+            console.log(compareArr);
+            document.getElementById('compareBtn').disabled = false;
+            
+        })
+        // 정답 확인
+        document.getElementById('compareBtn').addEventListener('click', () => {
+            let compareAnswer = 0;
+            let count = 0;
+            for(let i=0; i<compareArr.length; i++){
+                let answer = document.getElementById(`answer${i}`);
+                
+                if(compareArr[i] == answer.value){
+                    answer.value += '\t ✔️';
+                    answer.className = "green"
+                    compareAnswer++;
+                }else{
+                    answer.value += `\t `;
+                    answer.className = "red";
+                };
+                document.getElementById(`answer${count}`).readOnly = true;
+                count++;
+            }
+            let rate = `${(compareAnswer/count) * 100}`
+            if(count == 0){
+                alert("문제출제를 눌러주세요.")
+            }else{
+                document.getElementById('print').innerText = `정답개수 : ${compareAnswer} 정답률 :  ${rate}%`;
+                document.getElementById('compareBtn').disabled = true;
+            }
+            
+        });
+        
+        const ansObj = {}; // 정답을 담을 객체
+        // ans0 : 정답
+        // ansObj[ans0] = 정답;
+        // id => html 파일에서 유일하게 구분이 가능해야 함.
+        const quizArea = document.getElementById('q');
+        // 전역변수가 많으면 공유하는 변수가 늘어나는 것이고, 관리가 쉽지않음.
+        
+        // 범위로 랜덤수를 생성
+        // (Math.random() * (max - min + 1)) + min;
+    
+
+
+    </script>
+
+</body>
+</html>

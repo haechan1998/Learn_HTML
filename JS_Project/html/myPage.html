@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DriveAgain</title>
+  <link rel="stylesheet" href="../css/myPage_style.css">
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/defaultStyle.css">
+</head>
+<body>
+  <header class="header"  href="#top">
+    <div class="grey">
+        <div class="inner">
+            <!-- 로그인 / 회원가입 -->
+            <ul class="topHeader logoutDiv" id="topHeader">
+                <li>
+                    <a href="../html/login.html" class="loginbtn before">로그인</a>
+                </li>
+                <li>
+                    <a href="../html/sign.html" class="joinMembership">회원가입</a>
+                </li>
+            </ul>
+            <ul class="topHeader loginDiv" id="topHeader">
+                <li>
+                    <button id="logoutBtn">로그아웃</button>
+                </li>
+                <li>
+                    <a href="../html/myPage.html" class="joinMembership">마이페이지</a>
+                </li>
+            </ul>
+            <div class="bottomHeader">
+                <div class="logo">
+                    <a href="../html/mainPage.html"><img src="../image/mainLogo3.png" alt=""
+                            class="main_Logo" /></a>
+                </div>
+                <nav>
+                    <ul class="navBar">
+                        <li class="bold"><a href="../html/sell.html">내차팔기</a></li>
+                        <li class="bold"><a href="../html/searchBoard.html">내차사기</a></li>
+                        <li><a href="../html/driveMain.html">드라이브코스</a></li>
+                        <li><a href="../html/eventPage.html">이벤트</a></li>
+                        <li><a href="../html/exhibitionPage.html">기획전</a></li>
+                        <li><a href="../html/qeustion.html">공지사항</a></li>
+                    </ul>
+                </nav>
+                <ul class="myImpormation">
+                    <li><a href="" id="myPage">마이페이지</a></li>
+                    <li>
+                        <button type="button" class="menuBtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-list" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                            </svg>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="toggleSection" class="toggleRe">
+            <!-- 햄버거 메뉴바를 클릭하면 나올 창. -->
+            <div class="inner">
+                <div class="toggleMene">
+                    <div class="menu menu1">
+                        <p>내차사기 / 내차팔기</p>
+                        <ul>
+                            <!-- 혜원씨자리 -->
+                            <li><a href="../html/searchBoard.html">차량검색</a></li>
+                            <li><a href="../html/sell.html">내차팔기</a></li>
+                            <li><a href="../html/priceChart.html">차량시세</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu menu2">
+                        <p>드라이브코스</p>
+                        <ul>
+                            <li><a href="../html/drive1.html">설악산 드라이브 길</a></li>
+                            <li>
+                                <a href="../html/drive2.html">높은고개 드라이브 길</a>
+                            </li>
+                            <li><a href="../html/drive3.html">바다 드라이브 길</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu menu3">
+                        <p>이벤트 / 기획전</p>
+                        <ul>
+                            <li><a href="../html/eventPage.html">이벤트</a></li>
+                            <li><a href="../html/exhibitionPage.html">기획전</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu menu4">
+                        <p>공지사항</p>
+                        <ul>
+                            <!-- 주선씨자리 -->
+                            <li><a href="../html/qeustion.html">자주묻는질문</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu menu5">
+                        <p>티저영상</p>
+                        <ul>
+                            <li><a href="../html/screen.html">티저영상</a></li>
+                        </ul>
+                    </div>
+                    <button type="button" class="menuBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-arrow-bar-up" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5m-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<script src="../js/header.js"></script>
+  <div class="inner">
+    <div class="container">
+      <div class="main-area">
+        <div class="welcome-box">
+          <h2>언제나, 어디서나 D.A와 함께해 주세요</h2>
+          <br>
+          <h3>마이페이지</h3>
+        </div>
+
+        <div class="info-section">
+          <div class="info-row">
+            <label>아이디</label>
+            <input type="text" id="id">
+            <button>수정</button>
+          </div>
+          <div class="info-row">
+            <label>비밀번호</label>
+            <input type="password" id="password">
+            <button>수정</button>
+          </div>
+          <div class="info-row">
+            <label>이메일</label>
+            <input type="email" id="email">
+            <button>수정</button>
+          </div>
+          <div class="info-row">
+            <label>전화번호</label>
+            <input type="tel" id="tel">
+            <button>수정</button>
+          </div>
+        </div>
+
+        <div class="box">
+          <h3>나의 시승신청</h3>
+          <p>예약 내역이 없습니다.</p>
+          <a href="#">시승 예약하기</a>
+        </div>
+
+        <div class="box">
+            <div class="smartcare-grid">
+                <div class="smartcare-item">
+                    <img src="../image/main_b05.jpg" alt="항목 1">
+                </div>
+                <h3>스마트케어<p>계약부터 장비까지 스마트하게 관리해 보세요.</p></h3>
+                
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar">
+        <div class="sidebarContainer">
+          <h3>어떤 도움이 필요하세요</h3>
+          <div class="support-grid">
+            <div class="support-item">
+              <img src="../image/ico_cs_main01.png" alt="예약변경">
+              <p>예약변경</p>
+            </div>
+            <div class="support-item">
+              <img src="../image/ico_service_driver.png" alt="운전자">
+              <p>운전자</p>
+            </div>
+            <div class="support-item">
+              <img src="../image/ico_service_insurance.png" alt="보험">
+              <p>보험</p>
+            </div>
+            <div class="support-item">
+              <img src="../image/ico_service_crash.png" alt="고장사고">
+              <p>고장/사고</p>
+            </div>
+            <div class="support-item">
+              <img src="../image/ico_cs_main07.png" alt="유류비">
+              <p>유류비</p>
+            </div>
+            <div class="support-item">
+              <img src="../image/ico_cs_main08.png" alt="부가상품">
+              <p>부가상품</p>
+            </div>
+          </div>
+    </div>
+        <a href="#" class="support-button">고객센터로 이동</a>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <a href="" id="top">
+        <div class="topBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                <path
+                    d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+            </svg>
+            TOP
+        </div>
+    </a>
+    <div class="inner">
+        <div class="logo">
+            <a href="../html/mainPage.html"><img src="../image/mainLogo3.png" alt="" class="main_Logo" /></a>
+        </div>
+        <!--  -->
+        <ul class="footer_impormation">
+            <li id="comName">상호명:Drive Again</li>
+            <li>사업자등록번호:101-10-10001</li>
+            <li>이메일:email@gmail.com</li>
+            <li>대표번호:000-0000-0000</li>
+            <li>COPYRIGHT © D.A MOTOR COMPANY. ALL RIGHTS RESERVED.</li>
+        </ul>
+        <ul class="footer_service">
+            <li><a href="">서비스 이용약관</a></li>
+            <li><a href="https://privacy.hyundai.com/overview/full-policy">고객정보 처리방침</a></li>
+            <li><a href="">한국어</a></li>
+            <li><a href="">English</a></li>
+        </ul>
+    </div>
+</footer>
+
+
+
+  
+</body>
+</html>

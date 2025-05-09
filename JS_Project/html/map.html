@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>거래 위치</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="../css/reset.css">
+  <style>
+    #map {
+      height: 250px;
+      width: 100%;
+      max-width: 600px;
+      margin: 10px auto;
+      border-radius: 10px;
+      border: 2px solid #5D6467;
+    }
+    .map-container {
+      text-align: center;
+    }
+    .map-controls {
+      margin-bottom: 10px;
+    }
+    #address {
+      padding: 6px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      width: 250px;
+    }
+    .mapBtn {
+      padding: 6px 10px;
+      background-color: #55B3E4;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="map-container">
+    <div class="map-controls">
+      <input type="text" id="address" placeholder="예: 강남 코리아IT아카데미">
+      <button class="mapBtn" onclick="searchAddress()">검색</button>
+    </div>
+    <div id="map"></div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+  <script src="../js/map.js"></script>
+</body>
+</html>

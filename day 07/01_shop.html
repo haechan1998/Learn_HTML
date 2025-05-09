@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../reset/reset.css">
+    <style>
+        @font-face {
+            font-family: "SpecialGothicExpandedOne-Regular";
+            src: url(../font/Jua_Special_Gothic_Expanded_One/Special_Gothic_Expanded_One/SpecialGothicExpandedOne-Regular.ttf);
+        }
+        body{
+            font-family: "SpecialGothicExpandedOne-Regular";
+            min-width: 1280px;
+        }
+        a{
+            text-decoration: none;
+        }
+        .container>.header>a{
+            color: dimgray;
+            font-size: 20px;
+        }
+        .container>.header>a:hover{
+            color: rgba(105, 105, 105, 0.664);
+        }
+        .container>.header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            padding-left: 80px;
+        }
+        .container>.header>ul{
+            display: flex;
+            justify-content: space-between;
+            padding-right: 40px;
+        }
+        .container>.header>ul>li{
+            padding: 20px 40px;
+        }
+        .container>.header>ul>li>a{
+            color: black;
+        }
+        .container>.header>ul>li>a:hover{
+            color: rgba(0, 0, 0, 0.589);
+        }
+        .container>.main-img{
+            background-image: url(../mans_shop/메인모자.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 400px;
+            
+        }
+        h2{
+            text-align: center;
+            padding: 50px 0;
+            font-size: 30px;
+        }
+        .container>.product{
+            width: 1000px;
+            display: flex;
+            flex-wrap: wrap;
+            text-align: center;
+            margin: auto;
+            font-size: 12px;
+        }
+        .container>.product>a{
+            flex: 1 1 30%;
+            color: black;
+            position: relative;
+        }
+        .container>.product>a>div{
+            width: 150px;
+            height: 150px;
+            margin: auto;
+            overflow: hidden;
+        }
+        .container>.product>a>div>img:hover{
+            transform: scale(1.1);
+        }
+        .container>.product>a>div>img:hover ~.text{
+            /* hover의 대상이 다른 객체일 경우 */
+            display: block;
+        }
+        .container>.product>a>ul{
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+        .container>.product>a>ul>li{
+            margin-bottom: 10px;
+        }
+        .product .text{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 15px;
+            font-weight: bold;
+            color: brown;
+            /* 화면에서 사라지게 설정 */
+            display: none;
+        }
+        .container>.footer{
+            text-align: center;
+            margin-top: 40px;
+        }
+        .container>.footer>a>img{
+            margin: 20px 40px;
+        }
+        .fixed{
+            position: fixed;
+            /* top bottom left rigth */
+            bottom: 20px;
+            right: 30px;
+            background-color: rgba(202, 191, 175, 0.795);
+            width: 50px;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 50px;
+            font-weight: 500;
+        }
+        .fixed>a{
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body id="top">
+    <div class="container">
+        <div class="header">
+            <a href="">MANS_SHOP</a>
+            <ul>
+                <li>
+                    <a href="">Content</a>
+                </li>
+                <li>
+                    <a href="">Shop</a>
+                </li>
+                <li>
+                    <a href="">Cart</a>
+                </li>
+                <li>
+                    <a href="../day 07/01_shopLogin.html" target="_blank">Login</a>
+                </li>
+            </ul>
+        </div>
+        <div class="main-img">
+        </div>
+        <h2>Our New Product</h2>
+        <!-- 제품이미지 3*3 -->
+        <div class="product">
+            <a href="">
+                <div>
+                    <img src="../mans_shop/티셔츠1.jpg" width="150" height="150" alt="">
+                    <div class="text">세일상품</div>
+                </div>
+                <ul>
+                    <li>T-shirt</li>
+                    <li>25,000</li>
+                </ul>
+            </a>
+            <a href="">
+                <div>
+                    <img src="../mans_shop/티셔츠2.jpg" width="150" height="150" alt="">
+                    <div class="text">세일상품</div>
+                </div>
+                <ul>
+                    <li>T-shirt</li>
+                    <li>25,000</li>
+                </ul>
+            </a>
+            <a href="">
+                <div>
+                    <img src="../mans_shop/티셔츠3.jpg" width="150" height="150" alt="">
+                </div>
+                <ul>
+                    <li>T-shirt</li>
+                    <li>25,000</li>
+                </ul>
+            </a>
+            <a href="">
+                <div>
+                    <img src="../mans_shop/아우터1.jpg" width="150" height="150" alt="">
+                </div>
+                <ul>
+                    <li>Outer</li>
+                    <li>25,000</li>
+                </ul>
+            </a>
+            <a href="">
+                <div>
+                    <img src="../mans_shop/아우터2.jpg" width="150" height="150" alt="">
+                </div>
+                <ul>
+                    <li>Outer</li>
+                    <li>25,000</li>
+                </ul>
+            </a>
+            <a href="">
+                <div>
+                    <img src="../mans_shop/아우터3.jpg" width="150" height="150" alt="">
+                </div>
+                <ul>
+                    <li>Outer</li>
+                    <li>25,000</li>
+                </ul>
+            </a>
+            <a href="">
+                <div>
+                    <img src="../mans_shop/바지1.jpg" width="150" height="150" alt="">
+                </div>
+                <ul>
+                    <li>pants</li>
+                    <li>25,000</li>
+                </ul>
+            </a>
+            <a href="">
+                <div>
+                    <img src="../mans_shop/바지2.jpg" width="150" height="150" alt="">
+                </div>
+                <ul>
+                    <li>pants</li>
+                    <li>25,000</li>
+                </ul>
+            </a>
+            <a href="">
+                <div>
+                    <img src="../mans_shop/바지3.jpg" width="150" height="150" alt="">
+                </div>
+                <ul>
+                    <li>pants</li>
+                    <li>25,000</li>
+                </ul>
+            </a>
+
+        </div>
+        <div class="footer">
+            <div class="fixed">
+                <a href="#top">top</a>
+            </div>
+            <!-- 아이콘 3개 -->
+                <a href="https://www.instagram.com/" target="_blank">
+                    <img src="../mans_shop/인스타아이콘.png" width="50px" height="50px" alt="">
+                </a>
+                <a href="https://www.facebook.com/" target="_blank">
+                    <img src="../mans_shop/페이스북.png" width="50px" height="50px" alt="">
+                </a>
+                <a href="https://x.com/" target="_blank">
+                    <img src="../mans_shop/트위터.png" width="50px" height="50px" alt="">
+                </a>
+        </div>
+    </div>
+</body>
+</html>

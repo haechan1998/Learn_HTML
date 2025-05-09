@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 파일마다 링크를 추가 -->
+    <link rel="stylesheet" href="../reset/reset.css">
+    <!-- 
+        width : 100% : 가로전체
+        heigth : 100% : 세로의 높이 만큼 X
+        vh / vw : 모니터(브라우저) 기준 높이
+        heigth : 100vh : 모니터 꽉 차게
+    -->
+        <style>
+            /* 링크를  css 내부로 이동*/
+            /*@import url(../reset/reset.css);*/
+        </style>
+        <style>
+           body{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: beige;
+            font-weight: 500;
+            }
+            .container{
+                background-image: url(/image/배경이미지.jpeg);
+                background-size: cover;
+                background-repeat: no-repeat;
+                height: 100vh;
+                position: relative;
+            }
+            .header{
+                display: flex;
+                justify-content: space-between;
+            }
+            .rowHeader{
+                display: flex;
+            }
+            .design{
+                width: 100px;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                padding-top: 20px;
+            }
+            .home,.login,.signup,.board{
+                width: 60px;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                padding: 20px 40px 0 5px;
+            }
+            .design{
+                padding-left: 40px;
+                font-size: 30px;
+            }
+            .board{
+                padding-right: 40px;
+            }
+            .content{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                text-align: center;
+            }
+            .content>.comment>p{
+                font-size: 80px;
+                text-align: center;
+                color: gray;
+            }
+            .content>button{
+                width: 150px;
+                font-size: 20px;
+                border-radius: 15px;
+                border: none;
+                background-color: rgb(165, 131, 148);
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                padding: 5px;
+                margin-top: 30px;
+            }
+            button:hover{
+                background-color: rgb(150, 119, 134);
+            }
+            button:active{
+                background-color: wheat;
+            }
+            .rowHeader>div>a{
+                text-decoration: none;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                color: beige;
+                font-size: 20px;
+                font-weight: 500;
+            }
+            .rowHeader>div>a:hover{
+                color: grey;
+                font-size: 22px;
+
+            }
+        </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="item design">DESIGN</div>
+            <div class="rowHeader">
+
+                <div class="item home">
+                    <a href="../day 06/07_front.html">HOME</a>
+                </div>
+                <div class="item login">
+                    <a href="">LOGIN</a>
+                </div>
+
+                <div class="item signup">
+                    <a href="">SIGNUP</a>
+                </div>
+
+                <div class="item board">
+                    <a href="">BOARD</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="comment">
+                <p>Welcome to Front-End</p>
+                <p>World</p>
+            </div>
+            <button>Learn More</button>
+        </div>
+    </div>
+</body>
+</html>

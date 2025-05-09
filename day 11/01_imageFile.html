@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .green{
+            color: green;
+        }
+        .red{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    파일명 : <input type="text" id="fileName">
+    <button type="button" id="btn">전송</button>
+    <h3 id="result"></h3>
+
+    <script>
+
+        /* 
+            input 태그에 파일명, 확장자 형태로 입력하여 전송 버튼을 클릭하면
+            이미지 파일인지 아닌지 검사
+            이미지 파일이면 '정상파일입니다. -green'
+            아니면 '이미지 파일만 가능합니다. -red'
+            이미지 파일 : jpg(JPG), png(PNG), gif(GIF), jpeg(JPEG)
+            정규표현식 : / 패턴 / i => /(.jpg|.png|.gif|.jpeg)/i
+
+            함수명.test(비교할값) => true / false 로 리턴
+            함수명.match(비교할값) => 배열로 리턴
+
+            // vaildation
+        */
+      
+        document.getElementById('btn').addEventListener('click', () => {
+            
+            let fileName = document.getElementById('fileName').value;
+            console.log(fileName);
+            let fileNameCheck = fileName.match(/(jpg|png|gif|jpeg)$/i);
+            console.log(fileNameCheck);
+
+            let imgTrue = `<span class = "green">정상파일입니다.</span>`
+            let imgFalse = `<span class = "red">이미지 파일만 가능합니다.</span>`
+            if(fileNameCheck){
+                document.getElementById('result').innerHTML = imgTrue;
+            }else{
+                document.getElementById('result').innerHTML = imgFalse;
+            }
+        });
+
+
+
+    </script>
+</body>
+</html>

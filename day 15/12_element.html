@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>element 생성</h1>
+    <ul>
+        <li>
+            '<li></li>' : innerHTML 로 직접 태그를 추가하는 방법
+        </li>
+        <li>
+            createElement : element 생성
+            appendChild : 다른 엘리먼트의 자식으로 추가
+        </li>
+    </ul>
+    <button type="button" id="btn1">li 한번에 추가</button>
+    <button type="button" id="btn2">li 하나씩 추가</button>
+    <button type="button" id="btn3">li 한번에 추가</button>
+    <button type="button" id="btn4">li 하나씩 추가</button>
+    <button type="button" id="reset">새로고침</button>
+    <hr>
+    <ul id="ul"></ul>
+    <hr>
+    <ol id="ol"></ol>
+
+    <script>
+
+        const data = ['HTML','CSS','JavaScript','SQL','JAVA'];
+        const ul = document.getElementById('ul');
+        const ol = document.getElementById('ol');
+        let count = 0;
+
+        document.getElementById('btn1').addEventListener('click',() => {
+            ul.innerHTML = '';
+            data.forEach(v => {
+                let li = document.createElement('li'); // <li></li>
+                li.innerText = v; // <li>HTML</li>
+                ul.appendChild(li); // ul 의 자식으로 추가 ul.innerHTML = li
+            })
+        });
+
+        // btn2 를 누를 때마다 하나씩 li 가 추가
+        document.getElementById('btn2').addEventListener('click', () => {
+            if(count < data.length){
+                let li = document.createElement('li');
+                li.innerText = data[count];
+                ul.appendChild(li);
+                count++;
+            }
+        });
+
+        document.getElementById('btn3').addEventListener('click', () => {
+            ol.innerHTML = ``;
+            data.forEach(v => {
+                ol.innerHTML += `<li>${v}</li>`;
+            })
+        });
+        let count2=0
+        document.getElementById('btn4').addEventListener('click', () => {
+                if(count < data.length){
+                    ol.innerHTML += `<li>${data[count]}</li>`
+                    count++;
+            }
+        });
+        
+        document.getElementById('reset').addEventListener('click', () => {
+            location.reload();
+        })
+        console.log(document.getElementsByTagName('li')); 
+
+
+
+    </script>
+</body>
+</html>

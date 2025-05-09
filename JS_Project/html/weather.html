@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>날씨 위젯</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f5f7fa;
+      padding: 10px;
+      margin: 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .widget {
+      background: white;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      max-width: 280px;
+      font-size: 14px;
+    }
+
+    .weather-icon {
+      width: 40px;
+      vertical-align: middle;
+    }
+
+    select, button {
+      padding: 4px;
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    h3 {
+      margin: 10px 0;
+    }
+
+    p {
+      margin: 6px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="widget">
+    <strong>날씨 위젯</strong><br>
+    <select id="location">
+      <optgroup label="서울특별시">
+        <option value="서울 종로구">서울 종로구</option>
+        <option value="서울 강남구">서울 강남구</option>
+      </optgroup>
+      <optgroup label="부산광역시">
+        <option value="부산 해운대구">부산 해운대구</option>
+        <option value="부산 남구">부산 남구</option>
+      </optgroup>
+      <optgroup label="제주특별자치도">
+        <option value="제주 제주시">제주 제주시</option>
+        <option value="제주 서귀포시">제주 서귀포시</option>
+      </optgroup>
+    </select>
+    <button onclick="getWeather()">확인</button>
+
+    <div id="weather" style="margin-top: 10px;"></div>
+  </div>
+
+  <script>
+    const locationMap = {
+      "서울 종로구": { lat: 37.5729503, lon: 126.9793579 },
+      "서울 강남구": { lat: 37.5172363, lon: 127.0473248 },
+      "부산 해운대구": { lat: 35.1631, lon: 129.1635 },
+      "부산 남구": { lat: 35.1360, lon: 129.0845 },
+      "제주 제주시": { lat: 33.4996, lon: 126.5312 },
+      "제주 서귀포시": { lat: 33.2530, lon: 126.5602 }
+    };
+
+    function dfs_xy_conv(lat, lon) {
+      const RE = 6371.00877, GRID = 5.0, SLAT1 = 30.0, SLAT2 = 60.0, OLON = 126.0, OLAT = 38.0;
+      const XO = 43, YO = 136, DEGRAD = Math.PI / 180.0;
+      let re = RE / GRID;
+      let slat1 = SLAT1 * DEGRAD;
+      let slat2 = SLAT2 * DEGRAD;
+      let olon = OLON * DEGRAD;
+      let olat = OLAT * DEGRAD;
+
+      let sn = Math.tan(Math.PI * 0.25 + slat2 * 0.5) / Math.tan(Math.PI * 0.25 + slat1 * 0.5);
+      sn = Math.log(Math.cos(slat1) / Math.cos(slat2)) / Math.log(sn);
+      let sf = Math.pow(Math.tan(Math.PI * 0.25 + slat1 * 0.5), sn) * Math.cos(slat1) / sn;
+      let ro = re * sf / Math.pow(Math.tan(Math.PI * 0.25 + olat * 0.5), sn);
+      let ra = re * sf / Math.pow(Math.tan(Math.PI * 0.25 + lat * DEGRAD * 0.5), sn);
+      let theta = lon * DEGRAD - olon;
+      if (theta > Math.PI) theta -= 2.0 * Math.PI;
+      if (theta < -Math.PI) theta += 2.0 * Math.PI;
+      theta *= sn;
+
+      let x = Math.floor(ra * Math.sin(theta) + XO + 0.5);
+      let y = Math.floor(ro - ra * Math.cos(theta) + YO + 0.5);
+      return { nx: x, ny: y };
+    }
+
+    async function getWeather() {
+      const selected = document.getElementById('location').value;
+      const { lat, lon } = locationMap[selected];
+      const { nx, ny } = dfs_xy_conv(lat, lon);
+
+      const today = new Date();
+      const base_date = today.toISOString().slice(0, 10).replace(/-/g, '');
+      const base_time = "0500";
+      const serviceKey = "d6cF3Nnyo1mIeT9LM8Xrs8Rq%2F9TG0TVk12HMlpbx44t71s%2F5sE8TMkBVxyPfxdpcI7miaLI75YAF82Bfl3tXSw%3D%3D"; // ← 실제 인증키로 바꿔주세요
+
+      const url = `https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=${serviceKey}&pageNo=1&numOfRows=1000&dataType=JSON&base_date=${base_date}&base_time=${base_time}&nx=${nx}&ny=${ny}`;
+
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        const items = data.response.body.items.item;
+
+        const sky = items.find(i => i.category === 'SKY' && i.fcstTime === '0900');
+        const pty = items.find(i => i.category === 'PTY' && i.fcstTime === '0900');
+        const tmp = items.find(i => i.category === 'TMP' && i.fcstTime === '0900');
+        const reh = items.find(i => i.category === 'REH' && i.fcstTime === '0900');
+
+        const icon = getWeatherIcon(sky?.fcstValue, pty?.fcstValue);
+        const container = document.getElementById('weather');
+
+        container.innerHTML = `
+          <h3>${selected}</h3>
+          <img src="${icon}" class="weather-icon" alt="날씨 아이콘">
+          <p>상태: ${getSkyText(sky?.fcstValue, pty?.fcstValue)}</p>
+          <p>기온: ${tmp?.fcstValue}℃</p>
+          <p>습도: ${reh?.fcstValue}%</p>
+        `;
+      } catch (err) {
+        document.getElementById('weather').innerText = "날씨 정보를 가져올 수 없습니다.";
+        console.error(err);
+      }
+    }
+
+    function getWeatherIcon(sky, pty) {
+      if (pty === '1') return 'https://openweathermap.org/img/wn/10d.png';
+      if (pty === '2') return 'https://openweathermap.org/img/wn/13d.png';
+      if (pty === '3') return 'https://openweathermap.org/img/wn/13d.png';
+      if (sky === '1') return 'https://openweathermap.org/img/wn/01d.png';
+      if (sky === '3') return 'https://openweathermap.org/img/wn/03d.png';
+      if (sky === '4') return 'https://openweathermap.org/img/wn/04d.png';
+      return '';
+    }
+
+    function getSkyText(sky, pty) {
+      if (pty === '1') return '🌧 비';
+      if (pty === '2') return '🌨 비/눈';
+      if (pty === '3') return '❄️ 눈';
+      if (sky === '1') return '☀️ 맑음';
+      if (sky === '3') return '⛅ 구름 많음';
+      if (sky === '4') return '☁️ 흐림';
+      return '정보 없음';
+    }
+  </script>
+</body>
+</html>

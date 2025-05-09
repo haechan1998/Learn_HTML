@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    이름 : <input type="text" id="name"><br>
+    주민번호 : <input type="text" id="rNum"><br>
+    <button type="button" id="btn">확인</button>
+    <h3 id="result"></h3>
+    <script>
+        const func1 = document.getElementById('btn').addEventListener('click',function(){
+            let name = document.getElementById('name').value;
+            let rNum = document.getElementById('rNum').value;
+
+            let today = new Date();
+            let birth = rNum.slice(0, rNum.indexOf('-'));
+            let ageSub = String(today.getFullYear()).slice(2,4);
+            let age = 100 - Number(rNum.slice(0,2)) + Number(ageSub);
+            let gender = '';
+            if(rNum.charAt(rNum.indexOf('-')+1) == '1' || rNum.charAt(rNum.indexOf('-')+1) == '3'){
+                gender = '남자';
+            }else{
+                gender = '여자';
+            }
+            if(rNum.charAt(rNum.indexOf('-')+1) >= '3'){
+                age = age-100;
+            }
+
+            let result = 
+            `
+            이름 : ${name}, 생년월일 : ${birth}, 나이 : ${age}, 성별 : ${gender}
+            `;
+            document.getElementById('result').innerText = result;
+        });
+
+    </script>
+</body>
+</html>

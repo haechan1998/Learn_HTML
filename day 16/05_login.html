@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    body{
+        background-color: cornflowerblue;
+        font-family: Impact, 'Arial Narrow Bold', sans-serif;
+        font-weight: 500;
+    }
+    .container{
+        position: absolute;
+        margin: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background-color: rgb(93, 208, 170);
+        border-radius: 10px;
+        box-shadow: 5px 5px 5px rgb(70, 159, 129);
+    }
+    .mainLogin{
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        font-size: 60px;
+        transform: translateX(-50%);
+        text-align: center;
+        color: white;
+        letter-spacing: 10px;
+
+    }
+    .input{
+        width: 350px;
+        height: 160px;
+        margin: auto;
+        padding-top: 10px;
+        box-sizing: border-box;
+    }
+    .inputId, .inputPassword, .btn{
+        width: 300px;
+        height: 35px;
+        display: block;
+        margin: 10px auto;
+        box-sizing: border-box;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        
+    }
+    .inputId, .inputPassword{
+        padding-left: 15px;
+    }
+    body p{
+        text-align: center;
+        font-size: 12px;
+        margin-bottom: 20px;
+    }
+    a{
+        text-decoration: none;
+        color: white;
+    }
+    .btn{
+        background-color: rgba(128, 128, 128, 0.63);
+        color: white;
+    }
+    .pass:hover{
+        cursor: pointer;
+    }
+    .pass:active{
+        background-color: rgb(86, 114, 38);
+    }
+    input::placeholder{
+        font-size: 14px;
+        color: hsl(0, 0%, 70%);
+    }
+    .pass{
+        background-color: rgb(123, 160, 57);
+    }
+
+</style>
+<body>
+    <form action="">
+        <div class="mainLogin">LOGIN</div>
+        <div class="container">
+            <div class="input">
+                <input type="text" name="id" class="inputId" placeholder="아이디" id="inputID">
+                <input type="password" name="password" class="inputPassword" placeholder="비밀번호" id="inputPASSWORD">
+                <button class="btn" type="button" id="btn" disabled>
+                <div class="login">로그인</div>
+                </button>
+            </div>
+            <a href="">
+            <p>비밀번호를 잊어버리셨나요?</p>
+            </a>
+        </div>
+    </form>
+
+    <script>
+        // event input
+        // id => 8글자 이상
+        // pw => 영어, 숫자, 특수문자 1개씩 포함한 8글자 이상
+        const id = document.getElementById('inputID');
+        const pw = document.getElementById('inputPASSWORD');
+        const btn = document.getElementById('btn');
+        const inputDiv = document.querySelector('.input');
+
+        inputDiv.addEventListener('input', ()=>{
+            // 정규식 {n} => n개
+            // 정규식 {min,} => min 이상
+            // 정규식 {min,max} => min개 이상 max개 이하
+            if(id.value.match(/^[A-Za-z0-9]{8,15}$/) && pw.value.match(/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,20}$/)){
+                btn.classList.add('pass')
+                btn.disabled = false;
+
+                if(id.value == 'mypage1234' && pw.value == 'mypage1234!'){
+                btn.addEventListener('click', () => {
+                    console.log(1111111);
+                    // location.replace('http://www.google.com');
+                    location.href="../day 07/02_lotteWorld.html";
+                    z
+                })
+            }
+            }else{
+                btn.classList.add('fail')
+            }
+        });
+
+        inputDiv.addEventListener('input', () => {
+
+            if(id.value == 'mypage1234' && pw.value == 'mypage1234!'){
+                btn.addEventListener('click', () => {
+                    console.log(1111111);
+                    // location.replace('http://www.google.com');
+                    location.href="../day 07/02_lotteWorld.html";
+                    z
+                })
+            }
+
+        });
+
+        // id.addEventListener('input', (e)=>{
+        //     if(id.value.match(/^[A-Za-z0-9]{8,15}$/)){
+        //         btn.classList.add('pass')
+        //         btn.disabled = false;
+        //     }else{
+        //         btn.classList.add('fail')
+        //     }
+        // })
+        
+        // pw.addEventListener('input', (e)=>{
+        //     if(pw.value.match(/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,20}$/)){
+        //         btn.classList.add('pass')
+        //         btn.disabled = false;
+        //     }else{
+        //         btn.classList.add('fail')
+        //     }
+            
+        // })        
+        
+        
+
+    </script>
+
+
+
+
+
+</body>
+</html>

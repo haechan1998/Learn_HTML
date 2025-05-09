@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        section{
+            margin: auto;
+            width: 500px;
+            height: 50px;
+        }
+        header>.main{
+            font-size: 30px;
+            font-weight: 700;
+            margin: 20px 0;
+        }
+        section>div:first-child{
+            /* 검색창 박스 모양 */
+            background-color: rgba(182, 127, 204, 0.562);
+            height: 60px;
+            line-height: 56px;
+            border-radius: 20px;
+        }
+        section>div:first-child>input{
+            width: 60%;
+            height: 25px;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            padding-left: 10px;
+        }
+        section>div:first-child>input::placeholder{
+            color: rgba(128, 128, 128, 0.479);
+        }
+        #btn1{
+            border: none;
+            background-color: rgba(199, 224, 117, 0.829);
+            border-radius: 25px;
+            padding: 10px;
+            box-shadow: 2px 2px 2px black;
+        }
+        #btn1:hover{
+            background-color: rgba(171, 194, 96, 0.904);
+            cursor: pointer;
+        }
+        #btn1:active{
+            background-color: rgba(199, 224, 117, 0.829);
+            box-shadow: none;
+        }
+        #listArr>div:nth-child(even){
+            background-color: rgba(0, 255, 255, 0.384);
+        }
+        #listArr>div:nth-child(odd){
+            background-color: rgba(198, 250, 129, 0.384);
+        }
+        section>div:last-child>div{
+            display: flex;
+            justify-content: space-between;
+            border-radius: 10px;
+        }
+        .list{
+            padding-left: 20px;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+        section>div:last-child>div button{
+            border: none;
+            background-color: transparent;
+        }
+        .delete{
+            cursor: pointer;
+        }
+        .hidden{
+            visibility: hidden;
+        }
+        #close{
+            border: none;
+            background-color: rgba(199, 224, 117, 0.829);
+            border-radius: 25px;
+            padding: 10px;
+            
+        }
+
+    </style>
+</head>
+<body>
+    
+    <header>
+        <div class="main"><여행 준비물 점검 목록></div>
+    </header>
+    <section id="section">
+        <div>
+            <input type="text" id="textBar" placeholder="리스트를 입력해주세요." autofocus="true">
+            <button type="button" id="btn1">✔️</button>
+            <button type="button" id="close">접기</button>
+        </div>
+        <div id="listArr">
+        </div>
+    </section>
+    
+    <script>
+        const lArr = document.getElementById('listArr');
+        const listArr = [];
+        let str = '';
+
+        document.getElementById('close').addEventListener('click', () => {
+            lArr.classList.toggle('hidden'); 
+        })
+
+        document.getElementById('textBar').addEventListener('keydown', (e) => {
+            if(e.keyCode === 13){
+                let input = document.getElementById('textBar');
+
+            if(input.value !== ''){
+                listArr.push(input.value);
+                input.focus();
+                input.value = '';
+                print();
+            }
+            
+            }
+        })
+
+        document.getElementById('btn1').addEventListener('click', () => {
+            let input = document.getElementById('textBar');
+
+            if(input.value != ''){
+                listArr.push(input.value);
+                input.focus();
+                input.value = '';
+                print();
+            }
+            
+            input.value = '';
+        });
+        
+        function print(){
+            let str = '';
+            for(let i =0; i<listArr.length; i++){
+                str += `<div id="div${i}">
+                    <div class="list">
+                        <input type="checkbox" name="" id="checkBox" value="on">${listArr[i]}
+                        </div>
+                        <button class="delete" data-no="${i}" id="deleteBtn${i}">❌</button>
+                        </div>`;
+                        
+                        // if(i%2 == 0){
+                            //     document.querySelector(`#div${i}`).style = "background-color: rgba(0, 255, 255, 0.384)";
+                            // }else{
+                                //     document.querySelector(`#div${i}`).style = "background-color: rgba(198, 250, 129, 0.384)";
+                                // }
+                                
+                
+            }
+            lArr.innerHTML = str;
+
+        }
+
+        // document.getElementById('btn1').addEventListener('click', () => {
+            
+        //     let input = document.getElementById('textBar').value;
+            
+        //     console.log(listArr);
+            
+        //     str = `<div id="div${count}"><div class="list">${input}</div><button class="delete" data-no="${count}" id="deleteBtn${count}">X</button></div>`;
+            
+        //     lArr.innerHTML += str;
+        //     if(count%2 == 0){
+        //         document.querySelector(`#div${count}`).style = "background-color: rgba(0, 255, 255, 0.384)";
+        //     }else{
+        //         document.querySelector(`#div${count}`).style = "background-color: rgba(198, 250, 129, 0.384)";
+        //     }
+
+        //     count++;
+        // })
+
+
+        document.addEventListener('click', (e) => {
+            let i = e.target.dataset.no;
+            if(e.target.id == `deleteBtn${i}`){    
+                // document.querySelector(`#div${i}`).remove();
+                listArr.splice(i,1);
+                print();
+            }
+            // for(let i=0; i<listArr.length; i++){
+            // }
+        });
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
